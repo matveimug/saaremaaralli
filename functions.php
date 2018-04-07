@@ -118,7 +118,14 @@ function disable_wyswyg_for_custom_post_type( $default ){
     if( get_post_type() === 'featured') return false;
     return $default;
 }
-
+/**
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 30;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 /**
  * Enqueue scripts and styles.
  */
@@ -128,6 +135,10 @@ function saaremaaralli_scripts() {
 	wp_enqueue_script( 'saaremaaralli-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'saaremaaralli-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'saaremaaralli-dotdotdot', get_template_directory_uri() . '/js/jquery.dotdotdot.js', array(), '20180604', true );
+
+	wp_enqueue_script( 'saaremaaralli-theme-stuff', get_template_directory_uri() . '/js/theme-stuff.js', array(), '20180604', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

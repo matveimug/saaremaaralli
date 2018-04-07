@@ -16,25 +16,13 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i,900,900i&amp;subset=cyrillic,latin-ext" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <nav id="site-navigation" class="main-navigation">
-    <div class="menu-toggle-container">
-        <div class="menu-toggle burger burger-dom">
-            <div class="bar" id="bar-1"></div>
-            <div class="bar" id="bar-2"></div>
-            <div class="bar" id="bar-3"></div>
-        </div>
-    </div>
-    <?php
-    wp_nav_menu(array(
-        'theme_location' => 'menu-1',
-        'menu_id' => 'primary-menu',
-    ));
-    ?>
+
     <div class="site-branding-container">
         <div class="site-branding">
             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
@@ -58,32 +46,65 @@
                 </svg>
             </a>
         </div>
-    </div><!-- /.site-branding -->
+    </div>
+
+    <div class="menu-toggle-container">
+        <div class="menu-toggle burger burger-dom">
+            <div class="bar" id="bar-1"></div>
+            <div class="bar" id="bar-2"></div>
+            <div class="bar" id="bar-3"></div>
+        </div>
+    </div>
+
+    <?php
+    wp_nav_menu(array(
+        'theme_location' => 'menu-1',
+        'menu_id' => 'primary-menu',
+    ));
+    ?>
+
 </nav><!-- /#site-navigation -->
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'mamas-heaven-wp-theme'); ?></a>
 
-    <header id="masthead" class="site-header" style="background-image: url('<?php echo(get_header_image()); ?>')">
 
+    <?php //featured newz:
+    $args = array(
+        'category_name' => 'mega-uudis'
+    );
+    $query = new WP_Query($args);
+    while ($query->have_posts()) : $query->the_post(); ?>
+        <?php static $count_news = 0;
+        if ($count_news == 1) {
+            break;
+        } else { ?>
+            <?php
+            $backgroundImg = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+            $excerpt = get_the_excerpt();
+            ?>
+            <header class="header-featured-news">
 
-        <!--        --><?php
-        //        if (is_front_page() && is_home()) : ?>
-        <!--            <h1 class="site-title">-->
-        <!--                <a href="--><?php //echo esc_url(home_url('/')); ?><!--" rel="home">-->
-        <?php //bloginfo('name'); ?><!--</a></h1>-->
-        <!--        --><?php //else : ?>
-        <!--            <h1 class="site-title">-->
-        <!--                <a href="--><?php //echo esc_url(home_url('/')); ?><!--" rel="home">-->
-        <?php //bloginfo('name'); ?><!--</a></h1>-->
-        <!--        --><?php
-        //        endif;
-        //
-        //        $description = get_bloginfo('description', 'display');
-        //        if ($description || is_customize_preview()) : ?>
-        <!--            <p class="site-description">--><?php //echo $description; /* WPCS: xss ok. */ ?><!--</p>-->
-        <!--        --><?php
-        //        endif; ?>
+                    <?php if ($backgroundImg) : ?>
+                        <div class="header-bg-container">
+                            <div class="header-bg-overlay"></div>
+                            <div class="header-bg" style="background-image: url('<?php echo $backgroundImg[0]; ?>')"></div>
+                        </div>
+                    <?php endif; ?>
+                    <div class="header-text">
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="header-title"><h1><?php the_title(); ?></h1></div>
+                            <div class="header-excerpt">
+                                <p><?php echo $excerpt; ?></p>
+                                <!--                                <button class="news-continue btn-sm btn-featured">loe edasi</button>-->
+                            </div>
+                            <button class="news-continue btn btn-featured">loe edasi</button>
+                        </a>
+                    </div>
+            </header>
+            <?php $count_news++;
+        } ?>
+    <?php endwhile; ?>
 
-    </header><!-- /#masthead -->
+    <!-- /#masthead -->
     <div id="content" class="site-content">
 

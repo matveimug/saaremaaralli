@@ -1,0 +1,28 @@
+$color__btn: #eee;
+.btn, .btn-sm {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+  }
+  background-color: $color__btn;
+  padding: 1em 1.5em;
+  border-radius: 10em;
+  border: none;
+  text-align: center;
+  &-sm {
+    padding: .5em 1em;
+  }
+  &:hover, &:focus {
+    @include btn-hover($color__btn);
+  }
+
+  @include fast(all);
+  @include box_shadow(3);
+  &-featured {
+    background-color: $color__featured;
+    &:hover, &:focus {
+      @include btn-hover($color__featured);
+    }
+  }
+
+}

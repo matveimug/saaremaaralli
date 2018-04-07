@@ -1,0 +1,225 @@
+//HTML
+html {
+  margin-top: 0 !important;
+}
+
+.header {
+  &-featured-news {
+    min-height: 80vh;
+    width: 100%;
+    position: relative;
+    margin-bottom: 2 * $spacer-unit;
+  }
+  &-bg {
+    @include fast(all);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #00C9FF;
+    &-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+    &-overlay {
+      @include fast(all);
+      background: rgb(0,212,255);
+      background: radial-gradient(circle, rgba(0,212,255,0.2) 16%, rgba(2,0,36,1) 100%);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: .7;
+    }
+  }
+  &-text {
+    text-align: center;
+    @include flex(center, center);
+    flex-direction: column;
+    line-height: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    > a {
+      max-width: 50vw;
+    }
+  }
+  &-title {
+    color: white;
+    text-transform: uppercase;
+    font-size: 2em;
+    @include longshadow($color__featured-shadow, 14);
+    border-bottom: 5px solid $color__featured;
+  }
+  &-excerpt {
+    color: white;
+    margin-top: 2em;
+  }
+}
+
+.featured-pages-container {
+  .featured {
+    &-container {
+      position: relative;
+      a, a * {
+        text-decoration: none;
+      }
+      > a {
+        &:hover {
+          .featured {
+            &-bg {
+              transform: scale(1.1);
+              &-overlay {
+                opacity: .4;
+              }
+            }
+            &-item {
+              background-color: transparent;
+            }
+            &-title {
+              //@include longshadow($color__featured-shadow, 7);
+            }
+          }
+        }
+      }
+    }
+    &-bg {
+      &-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+      &-overlay {
+        @include fast(all);
+        background: $color__main-gradient;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: .7;
+      }
+      @include fast(all);
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #00C9FF;
+    }
+    &-item {
+      @include steady(all);
+      @include flex(center, center);
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      padding: 2*$spacer-unit;
+      text-align: center;
+    }
+    &-title {
+      @include fast(all);
+      color: white;
+      margin: 0;
+      text-transform: uppercase;
+      line-height: 1;
+      padding: 20px;
+      border: 1px solid $color__featured;
+      font-size: 1.6em;
+    }
+    &-subtitle {
+      //background: white;
+      padding: 5px 8px;
+      margin-top: $spacer-unit;
+      color: white;
+      font-size: small;
+      font-weight: bold;
+      line-height: 1.2;
+      max-width: 300px;
+      max-height: 50px;
+    }
+  }
+}
+
+.featured-news-container {
+  .news {
+    &-container {
+      position: relative;
+      > a {
+        text-decoration: none;
+        &:hover {
+          .news {
+            &-bg {
+              transform: scale(1.1);
+            }
+            &-continue {
+              @include btn-hover($color__featured);
+            }
+          }
+        }
+      }
+    }
+    &-bg {
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      @include fast(all);
+      &-container {
+        height: 150px;
+        overflow: hidden;
+        margin-top: 1.2em;
+      }
+    }
+    &-meta {
+      font-size: small;
+      opacity: .6;
+    }
+    &-continue {
+      @include fast(all);
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    &-title {
+      margin-bottom: 3px;
+      h1 {
+        line-height: 1;
+        letter-spacing: -2px;
+        font-weight: 700;
+        font-size: 28pt;
+        padding-bottom: 7px;
+        border-bottom: 5px solid $color__featured;
+        height: 100px;
+        display: table-cell;
+        vertical-align: bottom;
+      }
+    }
+    &-linkto {
+      @include flex(center, center);
+      a {
+        text-decoration: none;
+        min-width: 250px;
+        h4 {
+          &:after {
+            content: " →";
+          }
+        }
+      }
+    }
+
+  }
+}
