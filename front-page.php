@@ -98,6 +98,22 @@ get_header(); ?>
             </a>
         </div>
 
+
+    </div>
+
+    <div class="social-feed">
+        <?php
+        $the_slug = 'social';
+        $args = array(
+            'post_type' => 'page',
+            'name' => $the_slug
+        );
+
+        $your_query = new WP_Query($args);
+        while ($your_query->have_posts()) :
+        $your_query->the_post(); ?>
+        <?php the_content(); endwhile; ?>
+        </div>
     </div>
 
 <?php

@@ -68,9 +68,21 @@ $brand-width: 260px;
     @include flex(left, center);
     top: 0;
     height: $nav-height;
-    background: $color__menu-bg;
+    //background: $color__menu-bg;
     ul {
       display: block;
+    }
+    .nav {
+      &-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        &-svg {
+          fill: $color__menu-bg;
+        }
+      }
     }
   }
   .site-branding {

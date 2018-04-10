@@ -461,10 +461,17 @@ a {
     align-items: left;
     justify-content: center;
     top: 0;
-    height: 70px;
-    background: linear-gradient(90deg, rgba(0, 16, 42, 0.81) 0%, #0c5551d4 100%); }
+    height: 70px; }
     nav.main-navigation ul {
       display: block; }
+    nav.main-navigation .nav-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      width: 100%; }
+      nav.main-navigation .nav-bg-svg {
+        fill: #000431; }
   .site-branding {
     transition: all 0.3s ease;
     position: absolute;
@@ -855,6 +862,9 @@ html {
     min-width: 250px; }
     .featured-news-container .news-linkto a h4:after {
       content: " →"; }
+
+.social-feed {
+  margin: 15px -15px; }
 
 .btn, .btn-sm {
   background-color: #eee;

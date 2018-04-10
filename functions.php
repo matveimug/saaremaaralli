@@ -139,6 +139,9 @@ function saaremaaralli_scripts() {
 	wp_enqueue_script( 'saaremaaralli-dotdotdot', get_template_directory_uri() . '/js/jquery.dotdotdot.js', array(), '20180604', true );
 
 	wp_enqueue_script( 'saaremaaralli-theme-stuff', get_template_directory_uri() . '/js/theme-stuff.js', array(), '20180604', true );
+    $translation_array = array( 'templateUrl' => get_stylesheet_directory_uri() );
+//after wp_enqueue_script
+    wp_localize_script( 'saaremaaralli-theme-stuff', 'object_name', $translation_array );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

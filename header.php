@@ -23,6 +23,12 @@
 <body <?php body_class(); ?>>
 <nav id="site-navigation" class="main-navigation">
 
+    <div class="nav-bg">
+        <svg class="nav-bg-svg" viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%; height: 100px">
+            <path d="M0,0 H100 L100,70 L0,70"></path>
+        </svg>
+    </div>
+
     <div class="site-branding-container">
         <div class="site-branding">
             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
@@ -86,7 +92,9 @@
 
                     <?php if ($backgroundImg) : ?>
                         <div class="header-bg-container">
-                            <div class="header-bg-overlay"></div>
+                            <div class="header-bg-overlay">
+<!--                                <canvas id="canvas" width=3000 height=1295></canvas>-->
+                            </div>
                             <div class="header-bg" style="background-image: url('<?php echo $backgroundImg[0]; ?>')"></div>
                         </div>
                     <?php endif; ?>
