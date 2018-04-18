@@ -104,3 +104,17 @@
 		}
 	}( container ) );
 } )();
+
+
+var burgers = document.querySelectorAll('.burger');
+
+for (var i = 0; i < burgers.length; i++) {
+
+    burgers[i].addEventListener('click', function () {
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+        } else {
+            this.classList.add('active');
+        }
+    });
+}

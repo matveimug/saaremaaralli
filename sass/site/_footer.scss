@@ -1,0 +1,36 @@
+.footer {
+  margin-top: 5em;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  background: url("img/dust.gif");
+  background-size: 100% auto;
+  background-color: $color__dust;
+  background-repeat: no-repeat;
+  &-social {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      @include flex(center, center);
+      flex-wrap: wrap;
+      a {
+        padding: 2em;
+        background-color: $color__featured;
+        border-radius: 100em;
+        margin: 1em;
+        display: block;
+        i {
+          width: 1em;
+          height: 1em;
+          text-align: center;
+          display: block;
+        }
+      }
+    }
+  }
+  &-content {
+    text-align: center;
+    font-size: small;
+    padding: 2em;
+  }
+}

@@ -51,6 +51,7 @@
 	align-items: $horizontal;
 	justify-content: $vertical;
 }
+.flex-center { @include flex(center, center)}
 
 @mixin box_shadow ($level) {
 
@@ -72,4 +73,19 @@
 	@include box_shadow(1);
 	transform: translate(0, 6px);
 	background-color: darken($color, 2%);
+}
+
+@mixin hover-border($color) {
+	&::after {
+		content: '';
+		display: block;
+		height: 2px;
+		background: $color;
+		width: 100%;
+		transform: scaleX(0);
+		@include fast(all);
+	}
+	&:hover::after {
+		transform: scaleX(1);
+	}
 }

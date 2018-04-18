@@ -11,11 +11,32 @@
  *
  * @package saaremaaralli
  */
+$backgroundImg = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+
 
 get_header(); ?>
+    <header class="header-page">
 
+        <?php if ($backgroundImg) : ?>
+            <div class="header-bg-container">
+                <div class="header-bg-overlay"></div>
+                <div class="header-bg" style="background-image: url('<?php echo $backgroundImg[0]; ?>')"></div>
+            </div>
+        <?php else : ?>
+            <div class="header-bg-container">
+                <div class="header-bg-overlay"></div>
+                <div class="header-bg" style="background-image: url('<?php echo random_img(); ?>')"></div>
+            </div>
+        <?php endif; ?>
+        <div class="header-text">
+            <a href="<?php the_permalink(); ?>">
+                <div class="header-title"><h1><?php single_post_title(); ?></h1></div>
+            </a>
+        </div>
+    </header>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+            <div id="content" class="site-content">
 
 		<?php
 		if ( have_posts() ) :
@@ -48,6 +69,7 @@ get_header(); ?>
 
 		endif; ?>
 
+            </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

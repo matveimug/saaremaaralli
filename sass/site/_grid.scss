@@ -5,20 +5,23 @@ $grid-count: 6;
 .site {
   //padding: $spacer-unit;
   &-content {
-    max-width: (($grid-count * $grid-unit) + (($grid-count - 1) * $spacer-unit));
+    @media #{$screen-min} {
+      max-width: (($grid-count * $grid-unit) + (($grid-count - 1) * $spacer-unit));
+    }
     margin: 0 auto;
     min-height: 100vh;
   }
 }
-
-.grid {
-  display: grid;
-  grid-gap: $spacer-unit;
-  margin-bottom: $spacer-unit;
-  grid-template-columns: repeat(auto-fill, $grid-unit);
-  @for $i from 1 through $grid-count {
-    &-#{$i} {
-      grid-column-end: span $i;
+@media #{$screen-min} {
+  .grid {
+    display: flex;
+    margin-bottom: $spacer-unit;
+    flex-wrap: wrap;
+    @for $i from 1 through $grid-count {
+      &-#{$i} {
+        margin: $spacer-unit/2;
+        flex: 1 1 ($i * $grid-unit);
+      }
     }
   }
 }

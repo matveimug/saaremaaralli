@@ -5,6 +5,10 @@ $color__background-button: #e6e6e6;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
+$color__dark: #000;
+$color__light: #fff;
+$color__acc: #00ff99;
+
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
@@ -21,8 +25,14 @@ $color__border-abbr: #666;
 
 $color__menu-fg: white;
 $color__main-gradient: linear-gradient(90deg, rgba(0, 16, 42, 0.81) 0%, #0c5551d4 100%);
-$color__menu-bg: #000431;
+$color__menu: $color__light;
+$color__menu-bg: $color__dark;
 $color__menu-acc: #46b4d8;
 
+$color__title-light: $color__light;
+$color__title-bg: $color__dark;
+$color__text-light: $color__light;
+
 $color__featured-shadow: #000431;
-$color__featured: #00ff9a;
+$color__featured: $color__acc;
+$color__dust: #d2d4ca;

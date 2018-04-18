@@ -9,6 +9,11 @@ WooCommerce styles override
 /**
  * Imports
  */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 /**
  * Shop tables
  */

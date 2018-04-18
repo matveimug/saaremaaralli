@@ -1,5 +1,3 @@
-
-
 $anim__menu-open: .3s ease;
 
 $nav-height: 70px;
@@ -9,17 +7,107 @@ $brand-width: 260px;
   //margin-top: $nav-height;
 }
 
-.main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%;
 
-  ul {
+.burger {
+  position:relative;
+  width: 50px;
+  height: 45px;
+  margin: 2vh;
+  cursor: pointer;
+}
+
+.burger-svg {
+  width: 35px;
+  height: 100%;
+  .bar {
+    fill: $color__menu-bg;
+    transition: all .3s ease;
+    font-size:100px;
+  }
+
+  #bar-1 {
+    transform: rotate(0deg);
+    transform-origin: 8px 20px;
+  }
+  #bar-2 {
+    transform: scale(1, 1);
+    transform-origin: 100px 45px;
+  }
+  #bar-3 {
+    transform: rotate(0deg);
+    transform-origin: 3px 72px;
+  }
+
+  &.active {
+    .bar {
+      font-size:105px;
+    }
+    #bar-1 {
+      transform: rotate(45deg);
+    }
+    #bar-2 {
+      transform: scale(1, 0);
+    }
+    #bar-3 {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+button.menu-toggle-container {
+  position: absolute;
+  right: 3px;
+  top: 1px;
+  padding: 0;
+  background: none;
+  border: none;
+  &:focus {
+    outline: none;
+    background: none;
+  }
+  @media #{$screen-min} {
     display: none;
+  }
+}
+
+nav.main-navigation {
+  .main-menu {
+    display: none;
+    @media #{$screen-min} {
+      display: block;
+    }
+  }
+  &.toggled {
+    .main-menu {
+      display: block;
+      font-size: xx-large;
+      font-weight: bold;
+      text-align: center;
+      line-height: 2;
+    }
+    .site-branding-container {
+      width: 0;
+      height: 0;
+    }
+    height: 100vh;
+  }
+  z-index: 100;
+  position: fixed;
+  width: 100vw;
+  height: 60px;
+  background: $color__menu-bg;
+  top: 0;
+  @include fast(all);
+  @include flex(center, center);
+  @include box_shadow(1);
+  @media #{$screen-min} {
+    box-shadow: none;
+  }
+    ul {
     list-style: none;
     margin: 0;
     padding-left: 0;
+
   }
 
   li {
@@ -31,17 +119,37 @@ $brand-width: 260px;
   a {
     display: block;
     text-decoration: none;
-    color: $color__menu-fg;
+    color: $color__menu;
     &:visited {
-      color: $color__menu-fg;
+      color: $color__menu;
     }
   }
-
-  .current_page_item > a,
-  .current-menu-item > a,
-  .current_page_ancestor > a,
-  .current-menu-ancestor > a {
-
+  .site-branding {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 186px;
+    overflow: hidden;
+    //height: 100%;
+    &-svg {
+      &-text {
+        @include fast(all);
+        fill: $color__menu;
+        transform: translate(-40px, -67px);
+      }
+      &-island {
+        @include fast(all);
+        display: none;
+      }
+    }
+    &-container {
+      overflow: hidden;
+      height: 100%;
+      width: 50%;
+    }
+  }
+  .nav-bg-svg {
+    display: none;
   }
 }
 
@@ -56,19 +164,17 @@ $brand-width: 260px;
   top: auto !important;
   bottom: 0 !important;
 }
+
 //
 
-@media screen and (min-width: 37.5em) {
+@media #{$screen-min} {
   .menu-toggle {
     display: none;
   }
   nav.main-navigation {
-    z-index: 100;
-    position: fixed;
+    height: 0;
+    @include fast(all);
     @include flex(left, center);
-    top: 0;
-    height: $nav-height;
-    //background: $color__menu-bg;
     ul {
       display: block;
     }
@@ -80,50 +186,142 @@ $brand-width: 260px;
         z-index: -1;
         width: 100%;
         &-svg {
+          display: block;
+          fill: white;
+        }
+      }
+    }
+    .site-branding {
+      @include fast(all);
+      height: auto;
+      left: unset;
+      top: unset;
+      width: $brand-width;
+      margin-top: 14px;
+      &-container {
+        width: $brand-width;
+        margin-left: -20px;
+        //margin-right: 50px;
+      }
+      &-svg {
+        &-text {
+          @include fast(all);
+          fill: $color__menu-fg;
+          transform: none;
+        }
+        &-island {
+          @include fast(all);
+          display: block;
           fill: $color__menu-bg;
         }
       }
     }
-  }
-  .site-branding {
-    @include fast(all);
-    position: absolute;
-    height: auto;
-    width: 260px;
-    margin-top: -42px;
-    &-container {
-      width: $brand-width;
-      //margin-right: 50px;
-    }
-    &-svg {
-      &-text {
-        fill: $color__menu-fg;
+    .main-menu {
+      @include fast(all);
+      position: relative;
+      margin-top: 4em;
+      margin-left: 1em;
+      display: flex;
+      height: 3em;
+      background-color: $color__menu-bg;
+      .nav-bg-svg {
+        position: absolute;
+        z-index: -1;
       }
-      &-island {
-        fill: $color__menu-acc;
+      .cart {
+        &-count {
+          font-size: 8px;
+          font-weight: bold;
+          color: $color__menu-bg;
+          background: $color__featured;
+          padding: 3px;
+          text-align: center;
+          border-radius: 15px;
+          @include box_shadow(1);
+          line-height: 0.5em;
+          vertical-align: baseline;
+          position: absolute;
+          top: 1.3em;
+          margin-left: 1.3em;
+        }
+        &-label {
+          color: $color__menu;
+        }
+      }
+      .menu-search {
+        form {
+          @include flex(center, center)
+        }
+        input, button {
+          background: none;
+          border: none;
+          border-radius: 0;
+          color: $color__menu;
+        }
+        input[type="search"] {
+          @include fast(all);
+          width: 2em;
+          margin-right: -2em;
+          z-index: 2;
+          color: transparent;
+          &:focus {
+            width: 10em;
+            margin-right: 0;
+            border-bottom: 1px solid $color__menu;
+            outline: none;
+            color: $color__menu;
+          }
+        }
+        &-icon {
+          font-size: 1em;
+          padding: .2em;
+        }
       }
     }
-  }
-  .menu-main_menu-container {
-    height: 100%;
     ul.menu {
       height: 100%;
       @include flex(center, center);
       li.menu-item {
         font-weight: 700;
-        font-size: 14px;
+        font-size: 18px;
         text-transform: uppercase;
-        font-style: italic;
+        //font-style: italic;
         margin: 10px;
         > a {
           @include fast(all);
-          padding: 10px;
+          @include hover-border($color__featured);
+          //padding: 0 10px;
+          color: $color__menu;
           border: 1px solid transparent;
         }
         &:hover > a,
         &.focus > a {
-          color: $color__featured;
-          @include longshadow($color__featured-shadow, 5);
+          //color: $color__featured;
+          //@include longshadow($color__featured-shadow, 5);
+        }
+      }
+    }
+    .menu-main_menu-container {
+      height: 100%;
+      margin: 0 1em;
+    }
+    &.scrolled {
+      padding-top: 7px;
+      height: $nav-height;
+      .main-menu {
+        @include fast(all);
+        margin-top: 5px;
+      }
+      .site-branding {
+        @include fast(all);
+        margin-top: -48px;
+        &-svg {
+          &-text {
+            fill: $color__menu;
+          }
+          &-island {
+            fill: transparent;
+          }
         }
       }
     }
