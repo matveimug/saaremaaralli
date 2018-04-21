@@ -4,7 +4,9 @@
     height: 80vh;
     width: 100%;
     position: relative;
-    margin-bottom: 2 * $spacer-unit;
+    margin-bottom: $spacer-unit / 2;
+    z-index: 1;
+    box-shadow: 0 -14px 20px 20px rgba(0, 0, 0, 0.27), 0px 3px 0px 0px rgba(0, 0, 0, 0.11);
   }
   &-page {
     min-height: 40vh;
@@ -20,7 +22,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-color: #00C9FF;
-    &-container, &-overlay, &-dust {
+    &-container, &-overlay, &-video {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -39,9 +41,27 @@
       background: linear-gradient(0deg, rgba(36,27,0,.8) 0%, rgba(0,212,255,0.2) 100%), url(img/grid.gif);
       z-index: 1;
     }
-    &-dust {
-      z-index: 1;
-      //background: url("img/dust_white.gif");
+    &-video {
+      z-index: 0;
+      display: none;
+      @media #{$screen-min} {
+        display: block;
+      }
+      .featured-video-plus {
+        width: 100%;
+        height: 0;
+        padding-top: 56.25%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
   &-text {
@@ -61,10 +81,13 @@
     }
   }
   &-title {
+    max-width: 70%;
     h1 {
       color: $color__title-light;
       text-transform: uppercase;
       background-color: $color__title-bg;
+
+      @include longboxshadow($color__dark, 20);
     }
     @media #{$screen-min} {
       font-size: 2em;
@@ -75,6 +98,7 @@
   &-excerpt {
     color: $color__text-light;
     line-height: 1.5;
-    margin-top: 1em;
+    margin-top: 2em;
+    max-width: 70%;
   }
 }

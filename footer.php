@@ -11,7 +11,6 @@
 
 ?>
 
-</div><!-- #content -->
 
 <footer id="colophon" class="footer">
     <?php
@@ -30,17 +29,19 @@
         ?>
         <div class="footer-social">
             <ul>
-                <li><a href="<?php if (!empty($fb_link)) {echo $fb_link;} ?>"><i class="fa fa-2x fa-facebook"></i></a></li>
-                <li><a href="<?php if (!empty($insta_link)) {echo $insta_link;} ?>"><i class="fa fa-2x fa-instagram"></i></a></li>
-                <li><a href="<?php if (!empty($twitter_link)) {echo $twitter_link;} ?>"><i class="fa fa-2x fa-twitter"></i></a></li>
+                <li><a href="<?php if (!empty($fb_link)) {echo $fb_link;} ?>"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="<?php if (!empty($insta_link)) {echo $insta_link;} ?>"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="<?php if (!empty($twitter_link)) {echo $twitter_link;} ?>"><i class="fa fa-twitter"></i></a></li>
             </ul>
         </div>
         <div class="footer-content">
             <?php the_content(); ?>
-            <small>~ Made by SARP & WP ~</small>
         </div>
-        <?php endwhile; ?>
+        <small class="imadethis">Made by SARP & WP & ❤</small>
+    <?php endwhile; ?>
 </footer><!-- #colophon -->
+
+</div><!-- #content -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

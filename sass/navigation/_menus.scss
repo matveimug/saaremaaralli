@@ -1,28 +1,28 @@
 $anim__menu-open: .3s ease;
 
-$nav-height: 70px;
-$brand-width: 260px;
+$nav-height: auto;
+$brand-width: 320px;
 
 .site {
   //margin-top: $nav-height;
 }
 
-
 .burger {
-  position:relative;
+  position: relative;
   width: 50px;
   height: 45px;
   margin: 2vh;
   cursor: pointer;
+  z-index: 10;
 }
 
 .burger-svg {
   width: 35px;
   height: 100%;
   .bar {
-    fill: $color__menu-bg;
+    fill: $color__menu;
     transition: all .3s ease;
-    font-size:100px;
+    font-size: 100px;
   }
 
   #bar-1 {
@@ -40,7 +40,7 @@ $brand-width: 260px;
 
   &.active {
     .bar {
-      font-size:105px;
+      font-size: 105px;
     }
     #bar-1 {
       transform: rotate(45deg);
@@ -71,39 +71,171 @@ button.menu-toggle-container {
 }
 
 nav.main-navigation {
-  .main-menu {
+  z-index: 100;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  background: $color__menu-bg;
+  height: 60px;
+  @include fast(all);
+  @include box_shadow(1);
+
+  .nav-container {
+    @include fast(all);
+    @include flex(center, center);
+  }
+  .menu-container {
     display: none;
     @media #{$screen-min} {
       display: block;
     }
   }
-  &.toggled {
+  input, button, select {
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: $color__menu;
+  }
+  .meta-menu {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.21);
+    li.menu-item {
+      > a:hover {
+        color: $color__acc;
+      }
+    }
+    .menu-item {
+      * {
+        font-size: small;
+      }
+      margin: 5px 10px;
+      color: $color__menu;
+    }
+    .cart {
+      &-count {
+        font-size: 8px;
+        font-weight: bold;
+        color: $color__menu-bg;
+        background: $color__featured;
+        padding: 3px;
+        text-align: center;
+        border-radius: 15px;
+        @include box_shadow(1);
+        line-height: 0.5em;
+        vertical-align: baseline;
+        position: absolute;
+        top: 1.3em;
+        margin-left: 1.3em;
+      }
+      &-label {
+        color: $color__menu;
+      }
+    }
+    .menu-search {
+      form {
+        @include flex(center, center)
+      }
+      input[type="search"] {
+        @include fast(all);
+        width: 7em;
+        z-index: 2;
+        color: transparent;
+        //border-bottom: 1px solid $color__menu;
+        &:focus {
+          outline: none;
+          color: $color__menu;
+        }
+      }
+      &-icon {
+        font-size: 1em;
+        padding: .2em;
+      }
+    }
+    .menu-lang {
+      &-select {
+        text-transform: uppercase;
+        //width: 5em;
+        option {
+          color: $color__dark;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .menu-count {
+      opacity: .5;
+    }
+  }
+  @media #{$screen-max} {
+    .meta {
+      &-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+      &-menu {
+        display: flex;
+        justify-content: space-evenly;
+        .menu-item * {
+          font-size: medium;
+        }
+      }
+    }
+    .menu {
+      &-container {
+        @include flex(center, center);
+        @include fast(all);
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: -100vh;
+        left: 0;
+      }
+      &-social, &-count {
+        display: none;
+      }
+      &-social {}
+      &-count {}
+    }
     .main-menu {
-      display: block;
-      font-size: xx-large;
+      font-size: 22px;
       font-weight: bold;
       text-align: center;
       line-height: 2;
+      width: 100%;
+      ul {
+        width: 100%;
+        height: 75vh;
+        @include flex(stretch, stretch);
+        flex-direction: column;
+        li {
+          @include flex(center, center);
+          flex: 1 0 auto;
+          a {}
+        }
+      }
     }
     .site-branding-container {
-      width: 0;
-      height: 0;
+      width: 0 !important;
+      height: 0 !important;
+      z-index: 10;
     }
+  }
+  &.toggled {
     height: 100vh;
+    .nav-container {
+      height: 100vh;
+    }
+    .menu {
+      &-container {
+        top: 0;
+      }
+    }
   }
-  z-index: 100;
-  position: fixed;
-  width: 100vw;
-  height: 60px;
-  background: $color__menu-bg;
-  top: 0;
-  @include fast(all);
-  @include flex(center, center);
-  @include box_shadow(1);
-  @media #{$screen-min} {
-    box-shadow: none;
-  }
-    ul {
+  ul {
     list-style: none;
     margin: 0;
     padding-left: 0;
@@ -154,10 +286,6 @@ nav.main-navigation {
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
 
 // cant see
 #wpadminbar {
@@ -172,9 +300,19 @@ nav.main-navigation {
     display: none;
   }
   nav.main-navigation {
-    height: 0;
+    height: auto;
+    .menu-container {
+      margin-left: auto;
+      flex: 1 0 auto;
+    }
+    .nav-container {
+      @include flex(flex-start, flex-start);
+      width: 100%;
+      max-width: 70em;
+      margin: 0 auto;
+    }
+    @include flex(flex-start, center);
     @include fast(all);
-    @include flex(left, center);
     ul {
       display: block;
     }
@@ -197,130 +335,77 @@ nav.main-navigation {
       left: unset;
       top: unset;
       width: $brand-width;
-      margin-top: 14px;
+      margin-top: -49px;
+      margin-left: -26px;
       &-container {
         width: $brand-width;
-        margin-left: -20px;
-        //margin-right: 50px;
+        @include fast(all);
       }
       &-svg {
+        //background-color: $color__light;
         &-text {
           @include fast(all);
-          fill: $color__menu-fg;
+          fill: $color__menu;
           transform: none;
         }
         &-island {
           @include fast(all);
           display: block;
-          fill: $color__menu-bg;
+          fill: transparent;
+          stroke: $color__menu;
+          stroke-width: 2;
+          stroke-dasharray: 1600;
+          stroke-dashoffset: 0;
         }
       }
     }
     .main-menu {
       @include fast(all);
+      @include flex(center, flex-end);
       position: relative;
-      margin-top: 4em;
-      margin-left: 1em;
-      display: flex;
-      height: 3em;
-      background-color: $color__menu-bg;
       .nav-bg-svg {
         position: absolute;
         z-index: -1;
       }
-      .cart {
-        &-count {
-          font-size: 8px;
-          font-weight: bold;
-          color: $color__menu-bg;
-          background: $color__featured;
-          padding: 3px;
-          text-align: center;
-          border-radius: 15px;
-          @include box_shadow(1);
-          line-height: 0.5em;
-          vertical-align: baseline;
-          position: absolute;
-          top: 1.3em;
-          margin-left: 1.3em;
-        }
-        &-label {
-          color: $color__menu;
-        }
-      }
-      .menu-search {
-        form {
-          @include flex(center, center)
-        }
-        input, button {
-          background: none;
-          border: none;
-          border-radius: 0;
-          color: $color__menu;
-        }
-        input[type="search"] {
-          @include fast(all);
-          width: 2em;
-          margin-right: -2em;
-          z-index: 2;
-          color: transparent;
-          &:focus {
-            width: 10em;
-            margin-right: 0;
-            border-bottom: 1px solid $color__menu;
-            outline: none;
-            color: $color__menu;
+      ul.menu {
+        height: 100%;
+        li.menu-item {
+          font-weight: 700;
+          font-size: 16px;
+          margin: 14px 20px;
+          > a {
+            @include hover-border($color__featured);
+            border: 1px solid transparent;
           }
-        }
-        &-icon {
-          font-size: 1em;
-          padding: .2em;
         }
       }
     }
     ul.menu {
-      height: 100%;
-      @include flex(center, center);
+      @include flex(center, flex-end);
       li.menu-item {
-        font-weight: 700;
-        font-size: 18px;
         text-transform: uppercase;
-        //font-style: italic;
-        margin: 10px;
         > a {
           @include fast(all);
-          @include hover-border($color__featured);
-          //padding: 0 10px;
           color: $color__menu;
-          border: 1px solid transparent;
-        }
-        &:hover > a,
-        &.focus > a {
-          //color: $color__featured;
-          //@include longshadow($color__featured-shadow, 5);
         }
       }
-    }
-    .menu-main_menu-container {
-      height: 100%;
-      margin: 0 1em;
     }
     &.scrolled {
-      padding-top: 7px;
-      height: $nav-height;
-      .main-menu {
-        @include fast(all);
-        margin-top: 5px;
-      }
+      top: -36px;
       .site-branding {
         @include fast(all);
-        margin-top: -48px;
+        width: 230px;
+        margin-top: -5px;
+        &-container {
+          width: 230px;
+        }
         &-svg {
           &-text {
             fill: $color__menu;
           }
           &-island {
             fill: transparent;
+            stroke-dashoffset: 1600;
           }
         }
       }

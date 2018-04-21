@@ -25,7 +25,10 @@ while ($query->have_posts()) : $query->the_post(); ?>
         break;
     } else { ?>
         <?php
+        $url = get_the_post_video_url( $post->ID );
         $backgroundImg = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
+        $youtube_id = $match[1];
         $excerpt = get_the_excerpt();
         ?>
         <header class="header-featured-news">
@@ -33,13 +36,20 @@ while ($query->have_posts()) : $query->the_post(); ?>
             <?php if ($backgroundImg) : ?>
                 <div class="header-bg-container">
                     <div class="header-bg-overlay"></div>
-                    <div class="header-bg-dust"></div>
+                    <div class="header-bg-video">
+                        <div class="featured-video-plus post-thumbnail fvp-responsive fvp-youtube fvp-center">
+                            <iframe id="ytheader" width="640" height="360"
+                                    src="https://www.youtube.com/embed/<?php echo $youtube_id ?>?width=640&amp;height=360&amp;vq=small&amp;autoplay=1&amp;enablejsapi=1&amp;iv_load_policy=3&amp;loop=1&amp;playlist=<?php echo $youtube_id ?>&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;mute=1"
+                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="">
+                            </iframe>
+                        </div>
+                    </div>
                     <div class="header-bg" style="background-image: url('<?php echo $backgroundImg[0]; ?>')"></div>
                 </div>
             <?php else : ?>
                 <div class="header-bg-container">
                     <div class="header-bg-overlay"></div>
-                    <div class="header-bg-dust"></div>
+                    <div class="header-bg-video"><?php echo $backgroundVid ?></div>
                     <div class="header-bg" style="background-image: url('<?php echo random_img(); ?>')"></div>
                 </div>
             <?php endif; ?>
@@ -122,16 +132,16 @@ while ($query->have_posts()) : $query->the_post(); ?>
                     <a href="<?php the_permalink(); ?>">
 
                         <div class="news-item">
-                            <div class="news-title"><h1><?php the_title(); ?></h1></div>
-                            <div class="news-meta">
-                                uuendatud:
-                                <span class="news-date"><?php the_modified_time('H:i'); ?><?php the_modified_time('d.m.y'); ?></span>
-                                autor: <span class="news-author"><?php the_author(); ?></span></div>
                             <?php if ($backgroundImg) : ?>
                                 <div class="news-bg-container">
                                     <div class="news-bg" style="background-image: url('<?php echo $backgroundImg[0]; ?>')"></div>
                                 </div>
                             <?php endif; ?>
+                            <div class="news-title"><h1><?php the_title(); ?></h1></div>
+                            <div class="news-meta">
+                                uuendatud:
+                                <span class="news-date"><?php the_modified_time('H:i'); ?><?php the_modified_time('d.m.y'); ?></span>
+                                autor: <span class="news-author"><?php the_author(); ?></span></div>
                             <div class="news-excerpt">
                                 <p><?php echo $excerpt; ?></p>
                                 <button class="news-continue btn-sm btn-featured">loe edasi</button>
@@ -143,7 +153,7 @@ while ($query->have_posts()) : $query->the_post(); ?>
             } ?>
         <?php endwhile; ?>
         <div class="news-linkto grid-6">
-            <a class="btn btn-featured" href="/index.php/uudised/">
+            <a class="" href="/index.php/uudised/">
                 <h4>kõik uudiseid </h4>
             </a>
         </div>

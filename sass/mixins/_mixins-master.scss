@@ -39,6 +39,9 @@
 @mixin longshadow($color, $length) {
 	text-shadow: makelongshadow($color, $length);
 }
+@mixin longboxshadow($color, $length) {
+	box-shadow: makelongshadow($color, $length);
+}
 
 @mixin fast($what) {
 	transition: $what .3s ease;
@@ -69,10 +72,10 @@
 
 }
 
-@mixin btn-hover($color) {
-	@include box_shadow(1);
-	transform: translate(0, 6px);
-	background-color: darken($color, 2%);
+@mixin btn-hover($x, $y) {
+	//@include box_shadow(1);
+	transform: translate($x, $y);
+	//background-color: darken($color, 2%);
 }
 
 @mixin hover-border($color) {

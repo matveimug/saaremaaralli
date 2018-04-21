@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i,900,900i&amp;subset=cyrillic,latin-ext" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
     <script src="https://use.fontawesome.com/f99ed8505f.js"></script>
     <?php wp_head(); ?>
 </head>
@@ -27,6 +27,17 @@
 
     <div class="nav-bg"></div>
 
+    <button class="menu-toggle-container">
+        <svg class="burger burger-svg" viewBox="0 0 100 90">
+            <rect class="bar" id="bar-1" width="1em" height="0.2em"></rect>
+            <rect class="bar" id="bar-2" width="1em" height="0.2em" y="0.35em"></rect>
+            <rect class="bar" id="bar-3" width="1em" height="0.2em" y="0.7em"></rect>
+        </svg>
+    </button>
+
+
+
+    <div class="nav-container">
     <div class="site-branding-container">
         <div class="site-branding">
             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
@@ -51,23 +62,53 @@
             </a>
         </div>
     </div>
-
-    <button class="menu-toggle-container">
-        <svg class="burger burger-svg" viewBox="0 0 100 90">
-            <rect class="bar" id="bar-1" width="1em" height="0.2em"></rect>
-            <rect class="bar" id="bar-2" width="1em" height="0.2em" y="0.35em"></rect>
-            <rect class="bar" id="bar-3" width="1em" height="0.2em" y="0.7em"></rect>
-        </svg>
-    </button>
-
-    <div class="main-menu" id="main_menu">
+    <div class="menu-container">
         <?php
-        wp_nav_menu(array(
-            'theme_location' => 'menu-1',
-            'menu_id' => 'primary-menu',
-        ));
+        $cartcount = WC()->cart->get_cart_contents_count();
+        $ajax = sprintf(_n('%d', '%d', $cartcount), $cartcount);
         ?>
+<!--        meta-->
+        <div class="meta-container" id="meta_menu">
+            <ul class="meta-menu menu">
+                <li class="menu-item menu-social"><a href="<?php if (!empty($fb_link)) {echo $fb_link;} ?>"><i class="fa fa-2x fa-facebook"></i></a></li>
+                <li class="menu-item menu-social"><a href="<?php if (!empty($insta_link)) {echo $insta_link;} ?>"><i class="fa fa-2x fa-instagram"></i></a></li>
+                <li class="menu-item menu-social"><a href="<?php if (!empty($twitter_link)) {echo $twitter_link;} ?>"><i class="fa fa-2x fa-twitter"></i></a></li>
+                <li class='menu-item menu-count'>
+                    <span id="countdown"></span>
+                </li>
+                <li class='menu-item menu-search'>
+                    <form action='/index.php/' id='searchform' method='get'>
+                        <input type='search' name='s' id='s' placeholder='search'>
+                        <button type='submit' class='menu-search-icon'><i class='fa fa-search'></i></button></i>
+                    </form>
+                </li>
+                <li class='menu-item menu-lang'>
+                    <select class='menu-lang-select'>
+                        <option value='est' selected>eesti</option>
+                        <option value='eng'>english</option>
+                        <option value='rus'>русский</option>
+                    </select>
+                </li>
+                <li class='menu-item cart'>
+                    <a class='cart-label' href='<?php wc_get_cart_url() ?>'>
+                        <i class='fa fa-shopping-cart'></i>
+                        <span class='cart-count'><?php $ajax ?></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+<!--        main-->
+        <div class="main-menu" id="main_menu">
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'menu-1',
+                'menu_id' => 'primary-menu',
+            ));
+            ?>
+        </div>
     </div>
+    </div>
+
 
 </nav><!-- /#site-navigation -->
 <div id="page" class="site">

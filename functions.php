@@ -133,14 +133,15 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 function saaremaaralli_scripts() {
 	wp_enqueue_style( 'saaremaaralli-style', get_stylesheet_uri() );
 
-    //enqueues our external font awesome stylesheet
-
     wp_enqueue_script( 'saaremaaralli-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
     wp_enqueue_script( 'saaremaaralli-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-//    wp_enqueue_script('font-awesome', '//use.fontawesome.com/f99ed8505f.js', array(), '20180604', true );
     wp_enqueue_script( 'saaremaaralli-dotdotdot', get_template_directory_uri() . '/js/jquery.dotdotdot.js', array(), '20180604', true );
+
+    wp_enqueue_script( 'saaremaaralli-countdown', get_template_directory_uri() . '/js/jquery.countdown.min.js', array(), '20181904', true );
+
+
 
 	wp_enqueue_script( 'saaremaaralli-theme-stuff', get_template_directory_uri() . '/js/theme-stuff.js', array(), '20180604', true );
     $translation_array = array( 'templateUrl' => get_stylesheet_directory_uri() );
@@ -173,33 +174,41 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 
 }
 
-add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
-function add_search_box_to_menu( $items, $args ) {
-
-    if( $args->theme_location == 'menu-1' ) {
-        $cartcount = WC()->cart->get_cart_contents_count();
-        $ajax = sprintf(_n('%d', '%d', $cartcount), $cartcount);
-        $items .=
-            "        
-            <li class='menu-item cart'>
-                <a class='cart-label' href='" . wc_get_cart_url() . "'>
-                    <i class='fa fa-shopping-cart'></i>
-                    <span class='cart-count'>" . $ajax . "</span>
-                </a>
-            </li>"
-            .
-            "<li class='menu-item menu-search'>
-                <form action='/index.php/' id='searchform' method='get'>
-                    <input type='search' name='s' id='s' placeholder=''>
-                    <button type='submit' class='menu-search-icon'><i class='fa fa-search'></i></button></i>
-                </form>
-            </li>"
-
-        ;
-    }
-
-    return $items;
-}
+//add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
+//function add_search_box_to_menu( $items, $args ) {
+//
+//    if( $args->theme_location == 'menu-1' ) {
+//        $cartcount = WC()->cart->get_cart_contents_count();
+//        $ajax = sprintf(_n('%d', '%d', $cartcount), $cartcount);
+//        $items .=
+//            "
+//            <li class='menu-item cart'>
+//                <a class='cart-label' href='" . wc_get_cart_url() . "'>
+//                    <i class='fa fa-shopping-cart'></i>
+//                    <span class='cart-count'>" . $ajax . "</span>
+//                </a>
+//            </li>"
+//            .
+//            "<li class='menu-item menu-search'>
+//                <form action='/index.php/' id='searchform' method='get'>
+//                    <input type='search' name='s' id='s' placeholder=''>
+//                    <button type='submit' class='menu-search-icon'><i class='fa fa-search'></i></button></i>
+//                </form>
+//            </li>"
+//            .
+//            "<li class='menu-item menu-lang'>
+//                <select class='menu-lang-select'>
+//                    <option value='est' selected>eesti</option>
+//                    <option value='eng'>english</option>
+//                    <option value='rus'>русский</option>
+//                </select>
+//            </li>"
+//
+//        ;
+//    }
+//
+//    return $items;
+//}
 
 function wptp_add_categories_to_attachments() {
     register_taxonomy_for_object_type( 'category', 'attachment' );

@@ -1,0 +1,9 @@
+.site {
+  @media #{$screen-min} {
+    background: url(img/bg_l.jpg), url(img/bg_r.jpg), url(img/bgfiller.gif);
+    background-position: calc(50% - 950px) 50%, calc(50% + 950px) 50%, center;
+    background-attachment: fixed;
+    background-repeat-x: no-repeat;
+    background-color: #bebbb6;
+  }
+}

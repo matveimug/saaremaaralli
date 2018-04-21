@@ -1,12 +1,11 @@
 .footer {
-  margin-top: 5em;
-  padding-top: 5em;
-  padding-bottom: 5em;
-  background: url("img/dust.gif");
-  background-size: 100% auto;
-  background-color: $color__dust;
-  background-repeat: no-repeat;
+  //margin-top: 5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-color: $color__menu-bg;
+  @include flex(center, center);
   &-social {
+    margin-right: .5em;
     ul {
       list-style: none;
       margin: 0;
@@ -14,8 +13,9 @@
       @include flex(center, center);
       flex-wrap: wrap;
       a {
-        padding: 2em;
-        background-color: $color__featured;
+        padding: 1em;
+        background-color: $color__menu;
+        color: $color__menu-bg;
         border-radius: 100em;
         margin: 1em;
         display: block;
@@ -29,8 +29,22 @@
     }
   }
   &-content {
-    text-align: center;
+    color: $color__light;
+    text-align: left;
     font-size: small;
-    padding: 2em;
+    padding: 0 2em;
+    border-left: 1px solid;
+    a {
+      color: $color__light;
+    }
+  }
+  small.imadethis {
+    color: $color__menu;
+    opacity: .6;
+    font-size: 10px;
+    position: absolute;
+    right: 0;
+    transform: rotate(-90deg);
+    margin-right: -3em;
   }
 }
