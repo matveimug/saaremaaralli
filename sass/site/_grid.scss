@@ -5,14 +5,14 @@ $grid-count: 6;
 .site {
   //padding: $spacer-unit;
   &-content {
-    @media #{$screen-min} {
+    @media #{$sm-min} {
       max-width: (($grid-count * $grid-unit) + (($grid-count - 1) * $spacer-unit));
     }
     margin: 0 auto;
     min-height: 100vh;
   }
 }
-@media #{$screen-min} {
+@media #{$sm-min} {
   .grid {
     display: flex;
     margin-bottom: $spacer-unit / 2;

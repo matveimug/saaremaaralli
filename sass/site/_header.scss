@@ -1,7 +1,9 @@
 .header {
   &-featured-news {
-    max-height: 800px;
-    height: 80vh;
+    @media #{$sm-min} {
+      max-height: 800px;
+      min-height: 80vh;
+    }
     width: 100%;
     position: relative;
     margin-bottom: $spacer-unit / 2;
@@ -38,13 +40,13 @@
     &-overlay {
       @include fast(all);
       background: rgb(36,27,0);
-      background: linear-gradient(0deg, rgba(36,27,0,.8) 0%, rgba(0,212,255,0.2) 100%), url(img/grid.gif);
+      background: radial-gradient(transparent 60%, rgba(0, 0, 0, 0.6) 90%), url(img/grid.gif);
       z-index: 1;
     }
     &-video {
       z-index: 0;
       display: none;
-      @media #{$screen-min} {
+      @media #{$sm-min} {
         display: block;
       }
       .featured-video-plus {
@@ -65,40 +67,49 @@
     }
   }
   &-text {
-    //text-align: center;
     @include flex(center, center);
     flex-direction: column;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    position: absolute;
-    > a {
-      @media #{$screen-min} {
+    min-height: 80vh;
+    margin-top: 60px;
+    text-align: center;
+    padding: 1em;
+    @media #{$sm-min} {
+      text-align: left;
+      @include flex(center, center);
+      min-height: auto;
+      margin-top: 0;
+      position: absolute;
+      > a {
         max-width: 68em;
         padding-top: 4em;
       }
     }
   }
   &-title {
-    max-width: 70%;
+    @media #{$sm-min} {
+      max-width: 70%;
+    }
     h1 {
+      border-bottom: solid 7px $color__menu-acc;
       color: $color__title-light;
+      padding: 26px 0;
       text-transform: uppercase;
-      background-color: $color__title-bg;
-
-      @include longboxshadow($color__dark, 20);
+      @media #{$sm-min} {
+        letter-spacing: -2px;
+        font-size: 5em;
+      }
     }
-    @media #{$screen-min} {
-      font-size: 2em;
-    }
-    //@include longshadow($color__featured-shadow, 14);
-    //border-bottom: 5px solid $color__featured;
   }
   &-excerpt {
     color: $color__text-light;
     line-height: 1.5;
     margin-top: 2em;
-    max-width: 70%;
+    @media #{$sm-min} {
+      max-width: 70%;
+    }
   }
 }

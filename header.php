@@ -18,6 +18,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i,900,900i&amp;subset=cyrillic,latin-ext" rel="stylesheet">
 
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
     <script src="https://use.fontawesome.com/f99ed8505f.js"></script>
     <?php wp_head(); ?>
 </head>
@@ -35,9 +36,6 @@
         </svg>
     </button>
 
-
-
-    <div class="nav-container">
     <div class="site-branding-container">
         <div class="site-branding">
             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
@@ -62,51 +60,80 @@
             </a>
         </div>
     </div>
-    <div class="menu-container">
-        <?php
-        $cartcount = WC()->cart->get_cart_contents_count();
-        $ajax = sprintf(_n('%d', '%d', $cartcount), $cartcount);
-        ?>
-<!--        meta-->
-        <div class="meta-container" id="meta_menu">
-            <ul class="meta-menu menu">
-                <li class="menu-item menu-social"><a href="<?php if (!empty($fb_link)) {echo $fb_link;} ?>"><i class="fa fa-2x fa-facebook"></i></a></li>
-                <li class="menu-item menu-social"><a href="<?php if (!empty($insta_link)) {echo $insta_link;} ?>"><i class="fa fa-2x fa-instagram"></i></a></li>
-                <li class="menu-item menu-social"><a href="<?php if (!empty($twitter_link)) {echo $twitter_link;} ?>"><i class="fa fa-2x fa-twitter"></i></a></li>
-                <li class='menu-item menu-count'>
-                    <span id="countdown"></span>
-                </li>
-                <li class='menu-item menu-search'>
-                    <form action='/index.php/' id='searchform' method='get'>
-                        <input type='search' name='s' id='s' placeholder='search'>
-                        <button type='submit' class='menu-search-icon'><i class='fa fa-search'></i></button></i>
-                    </form>
-                </li>
-                <li class='menu-item menu-lang'>
-                    <select class='menu-lang-select'>
-                        <option value='est' selected>eesti</option>
-                        <option value='eng'>english</option>
-                        <option value='rus'>русский</option>
-                    </select>
-                </li>
-                <li class='menu-item cart'>
-                    <a class='cart-label' href='<?php wc_get_cart_url() ?>'>
-                        <i class='fa fa-shopping-cart'></i>
-                        <span class='cart-count'><?php $ajax ?></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-<!--        main-->
-        <div class="main-menu" id="main_menu">
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'menu-1',
-                'menu_id' => 'primary-menu',
-            ));
-            ?>
-        </div>
+
+    <div class='search-container'>
+        <form action='/index.php/' id='search' method='get'>
+            <input type='search' class="search-input" name='s' id='s' placeholder=''>
+            <button type='submit' class="search-icon"><i class='fa fa-search'></i></button>
+            </i>
+        </form>
     </div>
+
+
+    <div class="nav-container">
+
+        <div class="menu-container">
+            <?php
+            $cartcount = WC()->cart->get_cart_contents_count();
+            $ajax = sprintf(_n('%d', '%d', $cartcount), $cartcount);
+            $args = array(
+                'post_type' => 'page',
+                'name' => 'footer'
+            );
+            $your_query = new WP_Query($args);
+            while ($your_query->have_posts()) :
+                $your_query->the_post();
+                $fb_link = get_post_meta(get_the_ID(), 'fb-link', true);
+                $insta_link = get_post_meta(get_the_ID(), 'insta-link', true);
+                $twitter_link = get_post_meta(get_the_ID(), 'twitter-link', true);
+            endwhile; ?>
+            <!--        meta-->
+            <div class="meta-container" id="meta_menu">
+                <ul class="meta-menu menu">
+                    <li class="menu-item menu-social"><a href="<?php if (!empty($fb_link)) {
+                            echo $fb_link;
+                        } ?>"><i class="fa fa-2x fa-facebook"></i></a></li>
+                    <li class="menu-item menu-social"><a href="<?php if (!empty($insta_link)) {
+                            echo $insta_link;
+                        } ?>"><i class="fa fa-2x fa-instagram"></i></a></li>
+                    <li class="menu-item menu-social"><a href="<?php if (!empty($twitter_link)) {
+                            echo $twitter_link;
+                        } ?>"><i class="fa fa-2x fa-twitter"></i></a></li>
+                    <li class='menu-item menu-count'>
+                        <span id="countdown"></span><span class="to-go"> rallini</span>
+                    </li>
+                    <li class='menu-item menu-search'>
+                        <form action='/index.php/' id='searchmenu' method='get'>
+                            <input type='search' name='s' id='s' placeholder='otsi...'>
+                            <button type='submit' class='menu-search-icon'><i class='fa fa-search'></i></button>
+                            </i>
+                        </form>
+                    </li>
+                    <li class='menu-item menu-lang'>
+                        <select class='menu-lang-select'>
+                            <option value='est' selected>eesti</option>
+                            <option value='eng'>english</option>
+                            <option value='rus'>русский</option>
+                        </select>
+                    </li>
+                    <li class='menu-item cart'>
+                        <a class='cart-label' href='index.php/cart/'>
+                            <i class='fa fa-shopping-cart'></i>
+                            <span class='cart-count'><?php $ajax ?></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--        main-->
+            <div class="main-menu" id="main_menu">
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'menu-1',
+                    'menu_id' => 'primary-menu',
+                ));
+                ?>
+            </div>
+        </div>
     </div>
 
 

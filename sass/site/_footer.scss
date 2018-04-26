@@ -1,11 +1,16 @@
 .footer {
-  //margin-top: 5em;
-  padding-top: 2em;
+  @media #{$sm-min} {
+    padding-top: 2em;
+  }
+  flex-wrap: wrap;
+  padding-top: 1em;
   padding-bottom: 2em;
   background-color: $color__menu-bg;
   @include flex(center, center);
   &-social {
-    margin-right: .5em;
+    @media #{$sm-min} {
+      margin-right: .5em;
+    }
     ul {
       list-style: none;
       margin: 0;
@@ -30,10 +35,13 @@
   }
   &-content {
     color: $color__light;
-    text-align: left;
+    @media #{$sm-min} {
+      text-align: left;
+      border-left: 1px solid;
+    }
+    text-align: center;
     font-size: small;
     padding: 0 2em;
-    border-left: 1px solid;
     a {
       color: $color__light;
     }
@@ -42,9 +50,11 @@
     color: $color__menu;
     opacity: .6;
     font-size: 10px;
-    position: absolute;
-    right: 0;
-    transform: rotate(-90deg);
-    margin-right: -3em;
+    @media #{$sm-min} {
+      position: absolute;
+      right: 0;
+      transform: rotate(-90deg);
+      margin-right: -3em;
+    }
   }
 }

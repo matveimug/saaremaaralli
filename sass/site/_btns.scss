@@ -7,27 +7,16 @@ $color__btn-text: $color__light;
   }
   color: $color__btn-text;
   background-color: $color__btn;
-  padding: 1em 1.5em;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 10px 40px;
   border: none;
-  border-radius: 0;
   text-align: center;
-  @include longboxshadow($color__btn, 10);
-  &-sm {
-    @include longboxshadow($color__btn, 3);
-    padding: .5em 1em;
-    &:hover, &:focus {
-      box-shadow: none;
-      color: $color__btn-text;
-      @include btn-hover(3px, 3px);
-    }
-  }
   &:hover, &:focus {
-    box-shadow: none;
-    color: $color__btn-text;
-    @include btn-hover(10px, 10px);
+    background-color: lighten($color__btn, 20%);
   }
 
-  @include fast(all);
+  //@include fast(all);
   &-featured {
     background-color: $color__btn;
     color: $color__btn-text;

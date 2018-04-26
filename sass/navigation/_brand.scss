@@ -1,0 +1,23 @@
+.site-branding {
+  position: relative;
+  left: -50%;
+  width: 186px;
+  overflow: hidden;
+  height: $nav-height;
+  &-svg {
+    &-text {
+      @include fast(all);
+      fill: $color__menu;
+      transform: translate(0, -67px);
+    }
+    &-island {
+      @include fast(all);
+      display: none;
+    }
+  }
+  &-container {
+    position: absolute;
+    left: 50%;
+    height: $nav-height;
+  }
+}

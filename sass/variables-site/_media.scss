@@ -1,2 +1,8 @@
-$screen-min: "screen and (min-width: 37.5em);";
-$screen-max: "screen and (max-width: 37.5em);";
+$sm-min: "screen and (min-width: 601px);";
+$sm-max: "screen and (max-width: 600px);";
+
+$md-min: "screen and (min-width: 769px);";
+$md-max: "screen and (max-width: 768px);";
+
+$lg-min: "screen and (min-width: 1025px);";
+$lg-max: "screen and (max-width: 1024px);";

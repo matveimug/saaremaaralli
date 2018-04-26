@@ -30,10 +30,12 @@
         $("#countdown")
             .countdown("2018/10/13", function (event) {
                 $(this).text(
-                    event.strftime('%Dp %Hh %Mm %Ss rallini')
+                    event.strftime('%Dp %H:%M:%S')
                 );
             });
     });
+
+
     // fu yt api
     var tag = document.createElement('script');
 
