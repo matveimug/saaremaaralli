@@ -1,3 +1,6 @@
+$brand-width: 190px;
+$brand-width-lg: 280px;
+
 .site-branding {
   position: relative;
   left: -50%;
@@ -19,5 +22,78 @@
     position: absolute;
     left: 50%;
     height: $nav-height;
+  }
+  //desktop
+  @media #{$md-min} {
+    @include fast(all);
+    height: auto;
+    left: unset;
+    top: unset;
+    width: $brand-width;
+    margin-top: -20px;
+    margin-left: -10px;
+    &-container {
+      left: 0;
+      top: 0;
+      width: $brand-width;
+      display: table-cell;
+      @include fast(all);
+    }
+    &-svg {
+      //background-color: $color__light;
+      &-text {
+        @include fast(all);
+        fill: $color__menu;
+        transform: none;
+      }
+      &-island {
+        @include fast(all);
+        display: block;
+        fill: transparent;
+        stroke: $color__menu;
+        stroke-width: 2;
+        stroke-dasharray: 1600;
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+  @media #{$lg-min} {
+    margin-top: -47px;
+    width: $brand-width-lg;
+    &-container {
+      width: $brand-width-lg;
+    }
+  }
+  a {
+    &:hover {
+      .site-branding-svg {
+        &-text {
+          fill: $color__menu_acc;
+        }
+      }
+    }
+  }
+}
+@media #{$md-min} {
+  .scrolled {
+    @include fast(all);
+    top: -36px;
+    .site-branding {
+      @include fast(all);
+      width: 230px;
+      margin-top: -5px;
+      &-container {
+        width: 230px;
+      }
+      &-svg {
+        &-text {
+          fill: $color__menu;
+        }
+        &-island {
+          fill: transparent;
+          stroke-dashoffset: 1600;
+        }
+      }
+    }
   }
 }

@@ -6,10 +6,7 @@ html, body {
 
 .featured-pages-container {
   z-index: 1;
-  padding: $spacer-unit / 2;
-  @media #{$sm-min} {
-    padding: 0;
-  }
+  margin: 0 -1em;
   .featured {
     &-container {
       z-index: 1;
@@ -116,9 +113,8 @@ html, body {
 }
 
 .featured-news-container {
-  padding: $spacer-unit / 2;
   @media #{$sm-min} {
-    padding: $spacer-unit / 4;
+    margin: 0 -.5em;
   }
   .news {
     &-container {
@@ -260,9 +256,9 @@ html, body {
 }
 
 .social-feed {
-  margin: 0;
+  margin: 0 -1em;
   @media #{$sm-min} {
-    margin: -2em 0 0 0;
+    margin: -2em -1em 0 -1em;
   }
   .ff-item .ff-img-holder {
     max-height: 270px;

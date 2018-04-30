@@ -9,7 +9,7 @@ nav.main-navigation {
   input, button, select {
     background: none;
     border: none;
-    border-radius: 0;
+    border-radius: 0 !important;
     color: $color__menu;
   }
   ul {
@@ -33,7 +33,10 @@ nav.main-navigation {
   overflow: hidden;
   .nav-container {
     height: 100%;
-    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
   }
   .menu-container {
     height: 100%;
@@ -55,10 +58,119 @@ nav.main-navigation {
       li {
         @include flex(center, center);
         flex: 1 0 auto;
+        margin: .1em 0;
+        position: relative;
+        background-color: lighten($color__menu-bg, 15%);
+        &:hover, &:focus {
+          background-color: lighten($color__menu-bg, 20%);
+        }
+        a {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid lighten($color__menu-bg, 10%);
+        }
       }
     }
   }
   &.toggled {
     height: 100vh;
+  }
+  //desktop
+  @media #{$md-min} {
+    @include fast(all);
+    top: 0;
+    overflow: visible;
+    height: auto;
+    .menu-container {
+      margin-left: auto;
+      margin-top: 0;
+      display: table;
+      padding-right: 2em;
+    }
+    .nav-container {
+      position: relative;
+      width: 100%;
+      max-width: 70em;
+      margin: 0 auto;
+      display: table;
+    }
+    @include fast(all);
+    ul {
+      display: block;
+    }
+    .nav {
+      &-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        &-svg {
+          display: block;
+          fill: white;
+        }
+      }
+    }
+    .main-menu {
+      @include fast(all);
+      text-align: right;
+      position: relative;
+      padding: 0;
+      .nav-bg-svg {
+        position: absolute;
+        z-index: -1;
+      }
+      ul.menu {
+        padding: 0;
+        height: 100%;
+        max-width: 37em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 2em;
+        margin-left: auto;
+        li.menu-item {
+          font-weight: 700;
+          font-size: 16px;
+          background: none;
+          position: relative;
+          > a {
+            @include hover-border($color__featured);
+            position: relative;
+            border: 1px solid transparent;
+            display: inline-block;
+            width: auto;
+            margin: 0;
+          }
+        }
+      }
+    }
+    ul.menu {
+      li.menu-item {
+        display: inline-block;
+        position: relative;
+        text-transform: uppercase;
+        &.hidden {
+          display: none;
+        }
+        > a {
+          @include fast(all);
+          color: $color__menu;
+        }
+      }
+    }
+    &.scrolled {
+      @include fast(all);
+      top: -36px;
+      .main-menu ul.menu li.menu-item > a {
+        padding: 9px 5px;
+      }
+    }
   }
 }

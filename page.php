@@ -38,7 +38,7 @@ while ( have_posts() ) : the_post();
     </header>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-            <div id="content" class="site-content">
+            <div id="content" class="site-content page">
 
 
             <?php

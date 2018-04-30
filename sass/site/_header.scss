@@ -10,12 +10,6 @@
     z-index: 1;
     box-shadow: 0 -14px 20px 20px rgba(0, 0, 0, 0.27), 0px 3px 0px 0px rgba(0, 0, 0, 0.11);
   }
-  &-page {
-    min-height: 40vh;
-    width: 100%;
-    position: relative;
-    margin-bottom: 2 * $spacer-unit;
-  }
   &-bg {
     @include fast(all);
     width: 100%;
@@ -39,23 +33,27 @@
     }
     &-overlay {
       @include fast(all);
-      background: rgb(36,27,0);
+      background: rgb(36, 27, 0);
       background: radial-gradient(transparent 60%, rgba(0, 0, 0, 0.6) 90%), url(img/grid.gif);
       z-index: 1;
     }
     &-video {
       z-index: 0;
       display: none;
-      @media #{$sm-min} {
+      @media #{$lg-min} {
         display: block;
       }
       .featured-video-plus {
         width: 100%;
         height: 0;
-        padding-top: 56.25%;
+        padding-top: (9 / 16) * 100%;
         position: absolute;
         left: 0;
         top: 0;
+        @media (max-aspect-ratio: 137/95) {
+          height: 100%;
+          width: 143vh;
+        }
         iframe {
           position: absolute;
           top: 0;
@@ -73,17 +71,22 @@
     width: 100%;
     top: 0;
     left: 0;
-    min-height: 80vh;
     margin-top: 60px;
     text-align: center;
     padding: 1em;
+    min-height: 80vh;
     @media #{$sm-min} {
       text-align: left;
       @include flex(center, center);
-      min-height: auto;
+      height: auto;
       margin-top: 0;
       position: absolute;
       > a {
+        &:hover {
+          h1 {
+            border-bottom-width: 25px;
+          }
+        }
         max-width: 68em;
         padding-top: 4em;
       }
@@ -94,13 +97,39 @@
       max-width: 70%;
     }
     h1 {
-      border-bottom: solid 7px $color__menu-acc;
+      border-bottom: solid 14px $color__menu-acc;
       color: $color__title-light;
       padding: 26px 0;
       text-transform: uppercase;
+      @include fast(all);
       @media #{$sm-min} {
         letter-spacing: -2px;
         font-size: 5em;
+      }
+    }
+  }
+  &-page {
+    @media #{$sm-min} {
+      height: 40vh;
+      max-height: 300px;
+      margin-bottom: 2 * $spacer-unit;
+    }
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    .header {
+      &-text {
+        min-height: auto;
+      }
+      &-title {
+        @media #{$sm-min} {
+          max-width: 70em;
+          width: 100vw;
+          margin: 0 auto;
+        }
+        h1 {
+          border-bottom: none;
+        }
       }
     }
   }

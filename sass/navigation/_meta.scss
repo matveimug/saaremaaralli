@@ -7,7 +7,7 @@ $meta-height: 50px;
   &-menu {
     position: absolute;
     top: 100vh;
-    margin-top: -($nav-height + $meta-height) !important;
+    margin-top: -$meta-height !important;
     height: $meta-height;
     left: 0;
     right: 0;
@@ -73,6 +73,27 @@ $meta-height: 50px;
         display: none;
         @media #{$sm-min} {
           display: inline;
+        }
+      }
+    }
+  }
+  @media #{$md-min} {
+    &-container {
+      margin-top: 0;
+      margin-left: auto;
+      display: table;
+    }
+    &-menu {
+      display: table-cell;
+      margin-top: 0 !important;
+      top: 0;
+      height: auto;
+      background-color: transparent;
+      position: relative;
+      border-bottom: 1px solid rgba($color__menu, .4);
+      .menu-item {
+        * {
+          font-size: 12px;
         }
       }
     }

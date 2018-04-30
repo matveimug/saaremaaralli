@@ -1,0 +1,6 @@
+.site-content {
+  padding: 0 .5em;
+  @media #{$sm-min} {
+    padding: 0 1em;
+  }
+}

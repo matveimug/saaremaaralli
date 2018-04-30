@@ -79,7 +79,7 @@ while ($query->have_posts()) : $query->the_post(); ?>
 
             <?php //featured pages:
             $args = array(
-                'post_type' => 'featured'
+                'category_name' => 'esilehel_alguses',
             );
             $query = new WP_Query($args);
             while ($query->have_posts()) : $query->the_post(); ?>
@@ -89,13 +89,10 @@ while ($query->have_posts()) : $query->the_post(); ?>
                 } else { ?>
                     <?php
                     $backgroundImg = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-                    $link = get_post_meta(get_the_ID(), 'link', true);
                     $content = get_the_content();
                     ?>
                     <div class="featured-container grid-3">
-                        <a href="/index.php/<?php if (!empty($link)) {
-                            echo $link;
-                        } ?>">
+                        <a href="<?php the_permalink(); ?>">
                             <div class="featured-bg-container">
                                 <div class="featured-bg-overlay"></div>
                                 <div class="featured-bg" style="background-image: url('<?php echo $backgroundImg[0]; ?>')"></div>
@@ -116,8 +113,11 @@ while ($query->have_posts()) : $query->the_post(); ?>
         </div>
 
         <div class="logo-slider">
-            <?php echo do_shortcode('[gs_logo order="ASC" speed="1000" inf_loop="1" ticker="1" logo_color="gray_to_def"]
-'); ?>
+            <?php echo do_shortcode('[gs_logo order="ASC" speed="1000" inf_loop="1" ticker="1" logo_color="gray_to_def"]'); ?>
+        </div>
+
+        <div class="featured-results">
+            <?php echo do_shortcode('[widget widget_name="results_widget"]'); ?>
         </div>
 
         <div class="featured-news-container grid">
