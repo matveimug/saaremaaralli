@@ -31,37 +31,60 @@ while (have_posts()) : the_post();
             <div id="content" class="site-content page">
                 <div class="grid info">
                     <div class="grid-1 info-menu">
-                        <div class="info-menu-cat">
-                            <?php //contestant loop
-                            $args = array(
-                                'post_type' => 'contestant',
-                            );
-                            $query = new WP_Query($args);
-                            while ($query->have_posts()) : $query->the_post(); ?>
-                                <?php
-                                $type = get_post_type();
-                                $id = get_the_ID();
-                                ?>
-                                <div class="info-menu-item">
-                                    <a data-url="<?php echo $type; ?>_<?php echo $id; ?>"><?php the_title(); ?></a>
+                        <div class="accordion">
+                            <div class="info-menu-cat accordion__wrapper">
+                                <?php //contestant loop
+                                $args = array(
+                                    'post_type' => 'contestant',
+                                );
+                                $query = new WP_Query($args); ?>
+                                <div class="accordion__item">
+                                    <input type="checkbox" >
+                                    <h3><?php
+                                        $object = get_post_type_object('contestant');
+                                        echo $object->labels->name;
+                                        ?></h3>
+                                    <div class="panel">
+                                        <?php //spectator loop
+                                        $args = array(
+                                            'post_type' => 'contestant',
+                                        );
+                                        $query = new WP_Query($args);
+                                        while ($query->have_posts()) : $query->the_post(); ?>
+                                            <?php
+                                            $type = get_post_type();
+                                            $id = get_the_ID();
+                                            ?>
+                                            <div class="info-menu-item">
+                                                <a data-url="<?php echo $type; ?>_<?php echo $id; ?>"><?php the_title(); ?></a>
+                                            </div>
+                                        <?php endwhile; ?>
+                                    </div>
                                 </div>
-                            <?php endwhile; ?>
-                        </div>
-                        <div class="info-menu-cat">
-                            <?php //spectator loop
-                            $args = array(
-                                'post_type' => 'spectator',
-                            );
-                            $query = new WP_Query($args);
-                            while ($query->have_posts()) : $query->the_post(); ?>
-                                <?php
-                                $type = get_post_type();
-                                $id = get_the_ID();
-                                ?>
-                                <div class="info-menu-item">
-                                    <a data-url="<?php echo $type; ?>_<?php echo $id; ?>"><?php the_title(); ?></a>
+                                <div class="accordion__item">
+                                    <input type="checkbox" >
+                                    <h3><?php
+                                        $object = get_post_type_object('spectator');
+                                        echo $object->labels->name;
+                                        ?></h3>
+                                    <div class="panel">
+                                        <?php //spectator loop
+                                        $args = array(
+                                            'post_type' => 'spectator',
+                                        );
+                                        $query = new WP_Query($args);
+                                        while ($query->have_posts()) : $query->the_post(); ?>
+                                            <?php
+                                            $type = get_post_type();
+                                            $id = get_the_ID();
+                                            ?>
+                                            <div class="info-menu-item">
+                                                <a data-url="<?php echo $type; ?>_<?php echo $id; ?>"><?php the_title(); ?></a>
+                                            </div>
+                                        <?php endwhile; ?>
+                                    </div>
                                 </div>
-                            <?php endwhile; ?>
+                            </div>
                         </div>
                     </div>
                     <div class="grid-5" id="info">

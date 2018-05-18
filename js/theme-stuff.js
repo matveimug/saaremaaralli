@@ -70,7 +70,6 @@
     function getUrlAndSHow() {
         var pathname = window.location.href.split('?');
         var link = '#' + pathname[1];
-        console.log(link);
         if (link != '#undefined') {
             $('.info-content').hide();
             $(link).show();

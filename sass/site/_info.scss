@@ -2,4 +2,11 @@
   &-content {
 
   }
+  &-menu {
+    &-cat {
+      h3 {
+        text-transform: capitalize;
+      }
+    }
+  }
 }

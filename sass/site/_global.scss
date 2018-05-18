@@ -27,3 +27,69 @@
     }
   }
 }
+
+.accordion {
+
+  $accordion-border-radius: 4px;
+  $accordion-border-color: #eaeaea;
+  $accordion-padding: 1em;
+  * {
+    @include fast(all);
+  }
+
+  &__wrapper {
+    list-style: none;
+    //margin: $accordion-padding 0;
+    width: 100%;
+  }
+
+  &__item {
+    float: left;
+    position: relative;
+    width: 100%;
+  }
+
+  &__item {
+    background: #fff;
+    border-bottom: 1px solid $accordion-border-color;
+    margin-bottom: $accordion-padding;
+    padding-bottom: $accordion-padding;
+
+    .panel {
+      padding-top: $accordion-padding / 2;
+    }
+
+    &:last-of-type {
+      border: 0;
+      border-radius: $accordion-border-radius;
+      padding-bottom: 0;
+    }
+
+    input[type=checkbox] {
+      position: absolute;
+      cursor: pointer;
+      width: 100%;
+      height: 1.4em;
+      z-index: 1;
+      opacity: 0;
+      background-color: yellow;
+
+      &:checked {
+
+        // Ensures panels are closed until checked
+        &~div.panel {
+          display: none;
+        }
+
+        // Rotate chevron icon on selection
+        &~span {
+          transform: rotate( 180deg );
+        }
+
+      }
+
+    }
+
+  }
+
+}
