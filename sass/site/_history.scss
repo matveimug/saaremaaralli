@@ -1,0 +1,193 @@
+$line-width: 3px;
+$pads: 40px;
+$dot: 50px;
+$arrow: $pads/2*3;
+.timeline {
+  @media #{$md-min} {
+    &-intro {
+      text-align: center;
+      p {
+        display: inline-block;
+        margin: 0;
+        padding-bottom: 1.5em;
+        //border-bottom: $line-width solid $color__dark;
+        @media #{$md-min} {
+          max-width: 70%;
+        }
+      }
+    }
+  }
+  .year-nomedia + .year-title {
+    bottom: 50%;
+    z-index: 1;
+    margin-bottom: 0.2em;
+    @media #{$md-max} {
+      position: relative;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style-type: none;
+      position: relative;
+      @media #{$md-min} {
+        width: 50%;
+      }
+      clear: both;
+      .year {
+        @media #{$md-min} {
+          position: relative;
+        }
+        bottom: 0;
+        @media #{$md-max} {
+          padding-left: $dot + $pads/2 -$line-width;
+          padding-bottom: $pads;
+        }
+        &-title {
+          @media #{$md-min} {
+            position: absolute;
+            padding: 3px 6px;
+            margin: 0 7px;
+          }
+          background-color: white;
+          color: $color__dark;
+          font-family: 'Pathway Gothic One', sans-serif;
+          bottom: 15px;
+          text-transform: uppercase;
+        }
+        &-media {
+          position: relative;
+        }
+        @media #{$md-min} {
+          &-nomedia {
+            height: 400px;
+          }
+        }
+        &-content {
+          color: $color__dark;
+          font-size: 14px;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          width: $arrow;
+          height: 0;
+          border-top: $color__dark $line-width solid;
+          padding-top: $dot/2 - $line-width/2;
+          z-index: 1;
+          @media #{$md-min} {
+            bottom: 50%;
+          }
+          @media #{$md-max} {
+            top: $dot/2 - $line-width/2;
+            left: $dot/2 - $line-width/2;
+          }
+        }
+        &::after {
+          box-sizing: border-box;
+          content: attr(title);
+          position: absolute;
+          width: $dot;
+          height: $dot;
+          border-radius: 50%;
+          color: white;
+          background-color: $color__dark;
+          font-family: 'Pathway Gothic One', sans-serif;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1;
+          font-size: 1.3em;
+          @media #{$md-min} {
+            bottom: 50%;
+          }
+          @media #{$md-max} {
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+      @media #{$md-min} {
+        &:first-child {
+          padding-top: $pads;
+        }
+      }
+      &:last-child {
+        padding-bottom: $pads;
+      }
+      @media #{$md-min} {
+        &:not(:first-child) {
+          margin-top: -$dot*2;
+        }
+      }
+      &::before {
+        content: "";
+        margin: 0 auto;
+        padding-top: 50px;
+        background: $color__dark;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: $line-width;
+        @media #{$md-max} {
+          margin-left: $dot/2 - $line-width/2;
+        }
+      }
+      @media #{$md-min} {
+        &:not(:first-child)::before {
+          margin-top: $dot;
+        }
+      }
+      &:last-child::before {
+        display: none;
+      }
+      @media #{$md-min} {
+        &:nth-child(odd) {
+          padding-left: $pads;
+          float: right;
+          &::before {
+            left: -$line-width/2;
+          }
+          .year {
+            &-title {
+              left: 0;
+            }
+            &-content {
+              padding-right: $pads*2;
+            }
+            &::before {
+              left: -$pads;
+            }
+            &::after {
+              left: -$pads -$dot/2;
+            }
+          }
+        }
+        &:nth-child(even) {
+          padding-right: $pads;
+          float: left;
+          &::before {
+            right: -$line-width/2;
+          }
+          .year {
+            &-title {
+              right: 0;
+            }
+            &-content {
+              padding-left: $pads*2;
+            }
+            text-align: right;
+            &::before {
+              right: -$pads;
+            }
+            &::after {
+              right: -$pads -$dot/2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -230,7 +230,7 @@ input,
 select,
 optgroup,
 textarea {
-  color: #404040;
+  color: #000;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-size: 1rem;
@@ -425,12 +425,13 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: #404040;
+  cursor: pointer;
+  color: #000;
   text-decoration: none; }
   a:visited {
-    color: #404040; }
+    color: #000; }
   a:hover, a:focus, a:active {
-    color: #404040; }
+    color: #000; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -439,6 +440,14 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+.nav-padding {
+  margin-top: 60px;
+  padding-top: 2em; }
+
+#wpadminbar {
+  top: auto !important;
+  bottom: 0 !important; }
+
 .burger {
   position: relative;
   width: 50px;
@@ -725,7 +734,10 @@ nav.main-navigation {
           display: flex;
           justify-content: center;
           align-items: center;
-          border: 1px solid #1a1a1a; }
+          border: 1px solid #1a1a1a;
+          font-family: 'Pathway Gothic One', sans-serif;
+          letter-spacing: 2px;
+          text-transform: uppercase; }
   nav.main-navigation.toggled {
     height: 100vh; }
   @media screen and (min-width: 769px) {
@@ -803,7 +815,9 @@ nav.main-navigation {
           display: none; }
         nav.main-navigation ul.menu li.menu-item > a {
           transition: all 0.3s ease;
-          color: #fff; }
+          color: #fff;
+          font-family: 'Pathway Gothic One', sans-serif;
+          letter-spacing: 2px; }
       nav.main-navigation.scrolled {
         transition: all 0.3s ease;
         top: -36px; }
@@ -933,6 +947,27 @@ nav.main-navigation {
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+.vid {
+  z-index: 0; }
+  .vid-container {
+    padding-top: 56.25%; }
+  @media screen and (min-width: 1025px) {
+    .vid {
+      display: block; } }
+  .vid .featured-video-plus {
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+    position: absolute;
+    left: 0;
+    top: 0; }
+    .vid .featured-video-plus iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+
 .comment-content a {
   word-wrap: break-word; }
 
@@ -1021,7 +1056,7 @@ html, body {
       z-index: -1; }
     .featured-pages-container .featured-bg-overlay {
       transition: all 0.3s ease;
-      background: linear-gradient(0deg, rgba(107, 255, 149, 0) 0%, rgba(107, 255, 149, 0.2) 100%), url(img/grid.gif);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%), url(img/grid.gif);
       position: absolute;
       left: 0;
       top: 0;
@@ -1312,7 +1347,6 @@ html, body {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: auto;
       margin-top: 0;
       position: absolute; }
       .header-text > a {
@@ -1349,7 +1383,7 @@ html, body {
     min-height: auto; }
   @media screen and (min-width: 601px) {
     .header-page .header-title {
-      max-width: 70em;
+      max-width: 68em;
       width: 100vw;
       margin: 0 auto; } }
   .header-page .header-title h1 {
@@ -1506,6 +1540,156 @@ html, body {
 
 .site-content.page .results, .site-content.single .results, .site-content.search .results {
   margin: 0 -1em; }
+
+@media screen and (min-width: 769px) {
+  .timeline-intro {
+    text-align: center; }
+    .timeline-intro p {
+      display: inline-block;
+      margin: 0;
+      padding-bottom: 1.5em; } }
+    @media screen and (min-width: 769px) and (min-width: 769px) {
+      .timeline-intro p {
+        max-width: 70%; } }
+
+.timeline .year-nomedia + .year-title {
+  bottom: 50%;
+  z-index: 1;
+  margin-bottom: 0.2em; }
+  @media screen and (max-width: 768px) {
+    .timeline .year-nomedia + .year-title {
+      position: relative; } }
+
+.timeline ul {
+  margin: 0;
+  padding: 0; }
+  .timeline ul li {
+    list-style-type: none;
+    position: relative;
+    clear: both; }
+    @media screen and (min-width: 769px) {
+      .timeline ul li {
+        width: 50%; } }
+    .timeline ul li .year {
+      bottom: 0; }
+      @media screen and (min-width: 769px) {
+        .timeline ul li .year {
+          position: relative; } }
+      @media screen and (max-width: 768px) {
+        .timeline ul li .year {
+          padding-left: 67px;
+          padding-bottom: 40px; } }
+      .timeline ul li .year-title {
+        background-color: white;
+        color: #000;
+        font-family: 'Pathway Gothic One', sans-serif;
+        bottom: 15px;
+        text-transform: uppercase; }
+        @media screen and (min-width: 769px) {
+          .timeline ul li .year-title {
+            position: absolute;
+            padding: 3px 6px;
+            margin: 0 7px; } }
+      .timeline ul li .year-media {
+        position: relative; }
+      @media screen and (min-width: 769px) {
+        .timeline ul li .year-nomedia {
+          height: 400px; } }
+      .timeline ul li .year-content {
+        color: #000;
+        font-size: 14px; }
+      .timeline ul li .year::before {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 0;
+        border-top: #000 3px solid;
+        padding-top: 23.5px;
+        z-index: 1; }
+        @media screen and (min-width: 769px) {
+          .timeline ul li .year::before {
+            bottom: 50%; } }
+        @media screen and (max-width: 768px) {
+          .timeline ul li .year::before {
+            top: 23.5px;
+            left: 23.5px; } }
+      .timeline ul li .year::after {
+        box-sizing: border-box;
+        content: attr(title);
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: white;
+        background-color: #000;
+        font-family: 'Pathway Gothic One', sans-serif;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        font-size: 1.3em; }
+        @media screen and (min-width: 769px) {
+          .timeline ul li .year::after {
+            bottom: 50%; } }
+        @media screen and (max-width: 768px) {
+          .timeline ul li .year::after {
+            top: 0;
+            left: 0; } }
+    @media screen and (min-width: 769px) {
+      .timeline ul li:first-child {
+        padding-top: 40px; } }
+    .timeline ul li:last-child {
+      padding-bottom: 40px; }
+    @media screen and (min-width: 769px) {
+      .timeline ul li:not(:first-child) {
+        margin-top: -100px; } }
+    .timeline ul li::before {
+      content: "";
+      margin: 0 auto;
+      padding-top: 50px;
+      background: #000;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 3px; }
+      @media screen and (max-width: 768px) {
+        .timeline ul li::before {
+          margin-left: 23.5px; } }
+    @media screen and (min-width: 769px) {
+      .timeline ul li:not(:first-child)::before {
+        margin-top: 50px; } }
+    .timeline ul li:last-child::before {
+      display: none; }
+    @media screen and (min-width: 769px) {
+      .timeline ul li:nth-child(odd) {
+        padding-left: 40px;
+        float: right; }
+        .timeline ul li:nth-child(odd)::before {
+          left: -1.5px; }
+        .timeline ul li:nth-child(odd) .year-title {
+          left: 0; }
+        .timeline ul li:nth-child(odd) .year-content {
+          padding-right: 80px; }
+        .timeline ul li:nth-child(odd) .year::before {
+          left: -40px; }
+        .timeline ul li:nth-child(odd) .year::after {
+          left: -65px; }
+      .timeline ul li:nth-child(even) {
+        padding-right: 40px;
+        float: left; }
+        .timeline ul li:nth-child(even)::before {
+          right: -1.5px; }
+        .timeline ul li:nth-child(even) .year {
+          text-align: right; }
+          .timeline ul li:nth-child(even) .year-title {
+            right: 0; }
+          .timeline ul li:nth-child(even) .year-content {
+            padding-left: 80px; }
+          .timeline ul li:nth-child(even) .year::before {
+            right: -40px; }
+          .timeline ul li:nth-child(even) .year::after {
+            right: -65px; } }
 
 /*--------------------------------------------------------------
 # Infinite scroll

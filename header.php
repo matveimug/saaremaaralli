@@ -13,10 +13,12 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;">
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i,900,900i&amp;subset=cyrillic,latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
     <script src="https://use.fontawesome.com/f99ed8505f.js"></script>

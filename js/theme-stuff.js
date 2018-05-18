@@ -33,6 +33,7 @@
                     event.strftime('%Dp %H:%M:%S')
                 );
             });
+        getUrlAndSHow();
     });
 
 
@@ -58,6 +59,22 @@
         // Mute!
         player.mute();
         console.log('Mute!');
+    }
+
+    //info page menu
+    $('.info-menu-item a').click(function() {
+        var url = $(this).data('url');
+        history.pushState({}, url, '?'+url);
+        getUrlAndSHow();
+    });
+    function getUrlAndSHow() {
+        var pathname = window.location.href.split('?');
+        var link = '#' + pathname[1];
+        console.log(link);
+        if (link != '#undefined') {
+            $('.info-content').hide();
+            $(link).show();
+        }
     }
 
 })(jQuery);

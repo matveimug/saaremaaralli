@@ -54,7 +54,7 @@ html, body {
       }
       &-overlay {
         @include fast(all);
-        background: linear-gradient(0deg, rgba($color__menu-acc, 0) 0%, rgba($color__menu-acc, 0.2) 100%), url(img/grid.gif);
+        background: linear-gradient(0deg, rgba($color__menu, 0) 0%, rgba($color__menu, 0.2) 100%), url(img/grid.gif);
         position: absolute;
         left: 0;
         top: 0;

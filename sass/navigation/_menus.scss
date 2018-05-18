@@ -1,4 +1,13 @@
 $nav-height: 60px;
+.nav-padding {
+  margin-top: $nav-height;
+  padding-top: 2em;
+}
+
+#wpadminbar {
+  top: auto !important;
+  bottom: 0 !important;
+}
 
 @import "burger";
 @import "search";
@@ -74,6 +83,9 @@ nav.main-navigation {
           justify-content: center;
           align-items: center;
           border: 1px solid lighten($color__menu-bg, 10%);
+          font-family: 'Pathway Gothic One', sans-serif;
+          letter-spacing: 2px;
+          text-transform: uppercase;
         }
       }
     }
@@ -162,6 +174,8 @@ nav.main-navigation {
         > a {
           @include fast(all);
           color: $color__menu;
+          font-family: 'Pathway Gothic One', sans-serif;
+          letter-spacing: 2px;
         }
       }
     }
