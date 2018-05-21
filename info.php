@@ -45,7 +45,7 @@ while (have_posts()) : the_post();
                                         echo $object->labels->name;
                                         ?></h3>
                                     <div class="panel">
-                                        <?php //spectator loop
+                                        <?php
                                         $args = array(
                                             'post_type' => 'contestant',
                                         );
@@ -68,7 +68,7 @@ while (have_posts()) : the_post();
                                         echo $object->labels->name;
                                         ?></h3>
                                     <div class="panel">
-                                        <?php //spectator loop
+                                        <?php
                                         $args = array(
                                             'post_type' => 'spectator',
                                         );

@@ -5,7 +5,29 @@
   &-menu {
     &-cat {
       h3 {
-        text-transform: capitalize;
+        text-transform: uppercase;
+        display: block;
+        border: 3px solid;
+        padding: 0.6em;
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+    &-item {
+      &:not(:last-child) {
+        //border-bottom: 1px solid;
+      }
+      a {
+        padding: .5em 0;
+        display: block;
+        text-align: center;
+      }
+      &.active {
+        background-color: black;
+        a {
+          font-weight: bold;
+          color: white;
+        }
       }
     }
   }

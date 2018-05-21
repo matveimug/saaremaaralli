@@ -51,12 +51,12 @@
 
   &__item {
     background: #fff;
-    border-bottom: 1px solid $accordion-border-color;
-    margin-bottom: $accordion-padding;
-    padding-bottom: $accordion-padding;
+    padding-bottom: $accordion-padding/2;
 
     .panel {
-      padding-top: $accordion-padding / 2;
+      padding: $accordion-padding/2 0;
+      overflow: hidden;
+      max-height: 300px;
     }
 
     &:last-of-type {
@@ -69,7 +69,7 @@
       position: absolute;
       cursor: pointer;
       width: 100%;
-      height: 1.4em;
+      height: 2.4em;
       z-index: 1;
       opacity: 0;
       background-color: yellow;
@@ -78,7 +78,8 @@
 
         // Ensures panels are closed until checked
         &~div.panel {
-          display: none;
+          max-height: 0;
+          padding: 0;
         }
 
         // Rotate chevron icon on selection

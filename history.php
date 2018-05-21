@@ -62,7 +62,7 @@ while (have_posts()) : the_post();
                                                 <div class="vid">
                                                     <div class="featured-video-plus post-thumbnail fvp-responsive fvp-youtube fvp-center">
                                                         <iframe id="ytheader" width="640" height="360"
-                                                                src="https://www.youtube.com/embed/<?php echo $youtube_id ?>?width=640&amp;height=360&amp;vq=small&amp;autoplay=0&amp;enablejsapi=1&amp;iv_load_policy=3&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;mute=1"
+                                                                src="https://www.youtube.com/embed/<?php echo $youtube_id ?>?width=640&amp;height=360&amp;vq=small&amp;enablejsapi=1&amp;iv_load_policy=3&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;mute=1"
                                                                 frameborder="0" encrypted-media
                                                         " allowfullscreen="">
                                                         </iframe>

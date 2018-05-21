@@ -33,6 +33,9 @@
                     event.strftime('%Dp %H:%M:%S')
                 );
             });
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            $('.accordion__item input[type=checkbox]').prop('checked', true);
+        }
         getUrlAndSHow();
     });
 
@@ -55,7 +58,7 @@
     });
 
     function onPlayerReady() {
-        player.playVideo();
+        // player.playVideo();
         // Mute!
         player.mute();
         console.log('Mute!');
@@ -70,6 +73,9 @@
     function getUrlAndSHow() {
         var pathname = window.location.href.split('?');
         var link = '#' + pathname[1];
+        var menu = $('[data-url="'+pathname[1]+'"]');
+        $('.info-menu-item').removeClass('active');
+        menu.parent().addClass('active');
         if (link != '#undefined') {
             $('.info-content').hide();
             $(link).show();
