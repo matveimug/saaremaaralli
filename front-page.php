@@ -113,7 +113,7 @@ while ($query->have_posts()) : $query->the_post(); ?>
         </div>
 
         <div class="logo-slider">
-            <?php echo do_shortcode('[gs_logo order="ASC" speed="1000" inf_loop="1" ticker="1" logo_color="gray_to_def"]'); ?>
+            <?php echo do_shortcode('[widget widget_name="logos_widget"]'); ?>
         </div>
 
         <div class="featured-results">

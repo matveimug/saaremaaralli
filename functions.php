@@ -141,7 +141,10 @@ add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
  * Enqueue scripts and styles.
  */
 function saaremaaralli_scripts() {
-	wp_enqueue_style( 'saaremaaralli-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'owl-style', get_template_directory_uri() . '/owlcarousel/owl.carousel.min.css' );
+    wp_enqueue_style( 'owl-theme-style', get_template_directory_uri() . '/owlcarousel/owl.theme.default.min.css' );
+    wp_enqueue_style( 'saaremaaralli-style', get_stylesheet_uri() );
+
 
     wp_enqueue_script( 'saaremaaralli-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -153,7 +156,8 @@ function saaremaaralli_scripts() {
 
 
 
-	wp_enqueue_script( 'saaremaaralli-theme-stuff', get_template_directory_uri() . '/js/theme-stuff.js', array(), '20180604', true );
+    wp_enqueue_script( 'saaremaaralli-owl', get_template_directory_uri() . '/owlcarousel/owl.carousel.min.js', array(), '20180604', true );
+    wp_enqueue_script( 'saaremaaralli-theme-stuff', get_template_directory_uri() . '/js/theme-stuff.js', array(), '20180604', true );
     $translation_array = array( 'templateUrl' => get_stylesheet_directory_uri() );
 //after wp_enqueue_script
     wp_localize_script( 'saaremaaralli-theme-stuff', 'object_name', $translation_array );
@@ -221,6 +225,7 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 //}
 
 include 'results.php';
+include 'logos.php';
 
 //call widget with shortcode
 function widget($atts) {
