@@ -45,6 +45,7 @@ class logos_widget extends WP_Widget
             $args = array(
                     'post_type' => 'attachment',
                     'category_name' => 'logo',
+                    'orderby' => 'rand',
             );
 
             $attachments = get_posts($args);

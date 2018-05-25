@@ -30,19 +30,20 @@ $meta-height: 50px;
     }
     .cart {
       &-count {
-        font-size: 8px;
+        font-size: 8px !important;
         font-weight: bold;
-        color: $color__menu-bg;
-        background: $color__featured;
-        padding: 3px;
+        padding: 3px 3px 3px 5px;
         text-align: center;
         border-radius: 15px;
-        @include box_shadow(1);
-        line-height: 0.5em;
+        line-height: 0.8em;
         vertical-align: baseline;
         position: absolute;
         top: 1.3em;
-        margin-left: 1.3em;
+        margin-left: 1.2em;
+        font-family: Roboto, sans-serif;
+        color: $color__menu-bg;
+        background: $color__featured;
+        @include box_shadow(1);
       }
       &-label {
         color: $color__menu;

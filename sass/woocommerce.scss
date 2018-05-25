@@ -7,9 +7,9 @@ WooCommerce styles override
 /**
  * WooCommerce color variables
  */
-$woocommerce__color-error: #e2401c;
-$woocommerce__color-success: #0f834d;
-$woocommerce__color-info: #3D9CD2;
+$woocommerce__color-error: #ffd5cc;
+$woocommerce__color-success: #ccffda;
+$woocommerce__color-info: #ccfeff;
 
 /**
  * Imports
@@ -17,6 +17,7 @@ $woocommerce__color-info: #3D9CD2;
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
+@import "shop/main";
 /**
  * Shop tables
  */
@@ -31,6 +32,11 @@ $woocommerce__color-info: #3D9CD2;
  * Single product
  */
 @import "shop/single-product";
+
+/**
+ * Single product
+ */
+@import "shop/cart";
 
 /**
  * Checkout

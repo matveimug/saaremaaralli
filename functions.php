@@ -170,6 +170,23 @@ add_action( 'wp_enqueue_scripts', 'saaremaaralli_scripts' );
 
 add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
 
+function mytheme_add_woocommerce_support() {
+    add_theme_support( 'woocommerce', array(
+        'thumbnail_image_width' => 100,
+        'single_image_width'    => 250,
+
+        'product_grid'          => array(
+            'default_rows'    => 3,
+            'min_rows'        => 2,
+            'max_rows'        => 8,
+            'default_columns' => 4,
+            'min_columns'     => 2,
+            'max_columns'     => 5,
+        ),
+    ) );
+}
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
     global $woocommerce;
     ob_start();
@@ -273,6 +290,13 @@ function random_img() {
     $key = array_rand($query->posts, 1);
     $rando = wp_get_attachment_url($query->posts[$key]->ID, 'full');
     return $rando;
+}
+
+add_action('init', 'init_remove_support',100);
+function init_remove_support()
+{
+    $post_type = 'attachment';
+    remove_post_type_support( $post_type, 'editor');
 }
 
 /**

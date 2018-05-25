@@ -21,6 +21,7 @@ table.shop_table_responsive {
 			&:before {
 				content: attr(data-title) ': ';
 				float: left;
+				font-weight: bold;
 			}
 
 			&.product-remove {
@@ -50,7 +51,7 @@ table.shop_table_responsive {
 	}
 }
 
-@media screen and (min-width: 48em) {
+@media #{$sm-min} {
 	table.shop_table_responsive {
 		thead {
 			display: table-header-group;

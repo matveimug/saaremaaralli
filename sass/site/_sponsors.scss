@@ -14,10 +14,7 @@
     flex-wrap: wrap;
   }
   &-single {
-    width: 270px;
-    @media #{$sm-max} {
-      width: 200px;
-    }
+    width: 210px;
     padding: 1em;
     a {
       display: block;

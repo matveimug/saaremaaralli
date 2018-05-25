@@ -1,21 +1,125 @@
-/**
- * Checkout
- */
+body.woocommerce-checkout {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .header-page {
+    margin-bottom: 0;
+    max-height: 300px;
+  }
+  .content-area {
+    padding-top: 0 !important;
+  }
+  #customer_details {
+    .form-row {
+      input {
+        width: 100%;
+      }
+      &-wide {
+        clear: both;
+      }
+      @media #{$sm-min} {
+        display: flex;
+      }
+      label {
+        min-width: 200px;
+      }
+    }
+  }
+  .woocommerce-checkout-review-order {
+    table.woocommerce-checkout-review-order-table {
+      @media #{$sm-max} {
+        display: block;
+      }
+        select {
+        width: 100%;
+      }
+      tfoot {
+        th {
+          text-align: right;
+        }
+      }
+      thead {
+        th {
+          display: none;
+        }
+      }
+      td, th {
+        padding: 1rem;
+        text-align: left;
+        @media #{$sm-max} {
+          padding: .5rem 0;
+          text-align: left !important;
+          display: block;
+        }
+      }
+      @media #{$sm-max} {
+        td.product-name, td.product-total {
+          display: inline;
+          margin-right: .5rem;
+        }
+      }
+    }
+  }
+  ul.payment_methods {
+    padding: 2rem 0;
+    border-bottom: 1px solid $color__background-hr;
+    border-top: 1px solid $color__background-hr;
+    @include flex(center, center);
+    flex-wrap: wrap;
+    li {
+      @include flex(center, flex-start);
+      padding: 1rem;
+      label {
+        padding-left: .5rem;
+        @include flex(center, flex-start);
+        img {
+          margin-left: 1em;
+        }
+      }
+    }
+    .payment_box {
+      max-width: 200px;
+      margin: .5rem;
+      padding: .5rem;
+
+      p {
+        font-size: 12px;
+        margin: 0;
+      }
+    }
+  }
+  .place-order {
+    padding: 2rem 0;
+    text-align: center;
+    p.wc-terms-and-conditions {
+      display: inline-block;
+      margin-right: 1em;
+    }
+    .button {
+      //float: right;
+      font-size: 1em;
+      font-weight: bold;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
-	.col2-set {
-		.form-row-first {
-			float: left;
-			margin-right: $columns__margin;
-		}
+  .col2-set {
+    .form-row-first {
+      float: left;
+      margin-right: $columns__margin;
+    }
 
-		.form-row-last {
-			float: right;
-			margin-right: 0;
-		}
+    .form-row-last {
+      float: right;
+      margin-right: 0;
+    }
 
-		.form-row-first,
-		.form-row-last {
-			@include column-width(2);
-		}
-	}
+    .form-row-first,
+    .form-row-last {
+      @include column-width(2);
+    }
+  }
 }
