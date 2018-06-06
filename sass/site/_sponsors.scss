@@ -7,21 +7,25 @@
     }
   }
   &-container {
-    @include flex(flex-start, space-between);
+    @include flex(flex-start, center);
     @media #{$sm-max} {
       @include flex(flex-start, space-around);
     }
     flex-wrap: wrap;
+    padding-bottom: 5em;
   }
   &-single {
-    width: 210px;
-    padding: 1em;
+    width: 220px;
+    padding: 1em 2em;
     a {
       display: block;
     }
     &-logo {
       height: 140px;
-      @include flex(flex-end, center)
+      @include flex(flex-end, center);
+      img {
+        width: 100%;
+      }
     }
     &-title {
       text-align: center;

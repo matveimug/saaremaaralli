@@ -20,7 +20,8 @@ while (have_posts()) : the_post();
                         'post_type' => 'attachment',
                         'category_name' => 'logo',
                         'orderby' => 'post_title',
-                        'order' => 'ASC'
+                        'order' => 'ASC',
+                        'posts_per_page'=>-1,
                     );
 
                     $attachments = get_posts($args);

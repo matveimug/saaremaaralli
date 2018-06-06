@@ -46,6 +46,7 @@ class logos_widget extends WP_Widget
                     'post_type' => 'attachment',
                     'category_name' => 'logo',
                     'orderby' => 'rand',
+                    'posts_per_page'=>-1,
             );
 
             $attachments = get_posts($args);

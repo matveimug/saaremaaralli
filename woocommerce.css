@@ -141,6 +141,10 @@ WooCommerce styles override
         bottom: 1em;
         left: auto;
         right: auto; } }
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      .header-text .breadcrumbs {
+        width: 350px;
+        margin-left: -175px; } }
     .header-text .breadcrumbs a {
       color: #fff; }
 
@@ -200,6 +204,7 @@ body.woocommerce-page .site {
       @media screen and (min-width: 601px) {
         body.woocommerce-page .site .content-area .site-main {
           padding: 2em 1em;
+          width: 100%;
           max-width: 70em; } }
       body.woocommerce-page .site .content-area .site-main .woocommerce-breadcrumb {
         display: none; }

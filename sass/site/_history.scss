@@ -18,7 +18,6 @@ $arrow: $pads/2*3;
     }
   }
   .year-nomedia + .year-title {
-    bottom: 50%;
     z-index: 1;
     margin-bottom: 0.2em;
     @media #{$md-max} {
@@ -35,6 +34,18 @@ $arrow: $pads/2*3;
         width: 50%;
       }
       clear: both;
+      &.nomedia {
+        //padding: 200px 0;
+        min-height: 300px;
+        .year {
+          &-title {
+            margin: .4rem 1.3rem;
+          }
+          &-content {
+            margin: 0 2em;
+          }
+        }
+      }
       .year {
         @media #{$md-min} {
           position: relative;
@@ -59,11 +70,6 @@ $arrow: $pads/2*3;
         &-media {
           position: relative;
           margin-bottom: 10px;
-        }
-        @media #{$md-min} {
-          &-nomedia {
-            height: 400px;
-          }
         }
         &-img {
           &-container {
@@ -125,7 +131,7 @@ $arrow: $pads/2*3;
       }
       @media #{$md-min} {
         &:not(:first-child) {
-          margin-top: -$dot*2;
+          margin-top: -$dot;
         }
       }
       &::before {
@@ -143,11 +149,12 @@ $arrow: $pads/2*3;
       }
       @media #{$md-min} {
         &:not(:first-child)::before {
-          margin-top: $dot;
+          //margin-top: $dot;
         }
       }
       &:last-child::before {
-        display: none;
+        height: $dot*2;
+        margin-top: -$dot;
       }
       @media #{$md-min} {
         &:nth-child(odd) {

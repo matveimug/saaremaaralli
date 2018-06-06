@@ -27,11 +27,11 @@ $brand-width-lg: 280px;
   @media #{$md-min} {
     @include fast(all);
     height: auto;
-    left: unset;
-    top: unset;
+    left: 0;
+    top: 0;
     width: $brand-width;
     margin-top: -20px;
-    margin-left: -10px;
+    margin-left: -27px;
     &-container {
       left: 0;
       top: 0;
@@ -82,6 +82,7 @@ $brand-width-lg: 280px;
       @include fast(all);
       width: 230px;
       margin-top: -5px;
+      left: 7px;
       &-container {
         width: 230px;
       }
@@ -95,5 +96,13 @@ $brand-width-lg: 280px;
         }
       }
     }
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .site-branding {
+    margin-top: -29px;
+  }
+  .scrolled .site-branding {
+    margin-top: -2px;
   }
 }

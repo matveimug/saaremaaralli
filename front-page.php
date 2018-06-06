@@ -117,7 +117,7 @@ while ($query->have_posts()) : $query->the_post(); ?>
         </div>
 
         <div class="featured-results">
-            <?php echo do_shortcode('[widget widget_name="results_widget"]'); ?>
+            <?php // echo do_shortcode('[widget widget_name="results_widget"]'); ?>
         </div>
 
         <div class="featured-news-container grid">

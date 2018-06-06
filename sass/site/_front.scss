@@ -87,7 +87,7 @@ html, body {
       padding: 1em;
       margin: 1em;
       background: rgba($color__menu-bg, 1);
-      //width: 100%;
+      max-width: 90%;
       //border-top: 1px solid rgba(lighten($color__menu-bg, 40%), 0.4);
     }
     &-title {
@@ -288,8 +288,10 @@ html, body {
     .logo-single {
       @include flex(center, center);
       height: 70px;
+      margin: 0 2em;
       img {
-        width: auto;
+        width: 100%;
+        height: auto;
         max-height: 70px;
       }
     }

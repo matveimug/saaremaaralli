@@ -35,7 +35,7 @@ while (have_posts()) : the_post();
                             $content = get_the_content();
                             $year = get_post_meta(get_the_ID(), 'aasta', true);
                             ?>
-                            <li>
+                            <li <?php if ($url or $backgroundImg) : ?> class="media" <?php else : ?> class="nomedia" <?php endif; ?>>
                                 <div class="year" title="<?php echo $year; ?>">
                                     <div class="year-media">
                                         <?php if ($url) : ?>

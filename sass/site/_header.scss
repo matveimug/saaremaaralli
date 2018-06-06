@@ -100,6 +100,11 @@
         left: auto;
         right: auto;
       }
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        width: 350px;
+        margin-left: -175px;
+
+      }
       color: $color__light;
       font-size: 14px;
       a {
