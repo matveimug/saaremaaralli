@@ -6,6 +6,7 @@ while (have_posts()) : the_post();
     $backgroundImg = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
     $realtitle = get_the_title();
     $realcontent = get_the_content();
+    $realcontent = apply_filters('the_content', $realcontent);
     ?>
     <?php get_template_part('postheader') ?>
     <div id="primary" class="content-area">
@@ -72,7 +73,7 @@ while (have_posts()) : the_post();
                     <div class="grid-5" id="info">
                         <div class="info-content info-intro">
                             <h1><?php echo $realtitle; ?></h1>
-                            <p><?php echo $realcontent; ?></p>
+                            <div><?php echo $realcontent; ?></div>
                         </div>
                         <?php //contestant-spectator loop
                         $args = array(

@@ -103,7 +103,6 @@
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         width: 350px;
         margin-left: -175px;
-
       }
       color: $color__light;
       font-size: 14px;
@@ -115,7 +114,7 @@
   }
   &-title {
     @media #{$sm-min} {
-      max-width: 70%;
+      max-width: 80%;
     }
     h1 {
       border-bottom: solid 14px $color__menu-acc;
@@ -162,7 +161,7 @@
     line-height: 1.5;
     margin-top: 2em;
     @media #{$sm-min} {
-      max-width: 70%;
+      max-width: 80%;
     }
   }
 }

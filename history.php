@@ -21,9 +21,11 @@ while (have_posts()) : the_post();
                             'post_type' => 'history',
                             'meta_key' => 'aasta',
                             'orderby' => 'meta_value',
-                            'order' => 'DESC'
+                            'order' => 'DESC',
+                            'posts_per_page' => -1
                         );
                         $query = new WP_Query($args);
+
                         while ($query->have_posts()) : $query->the_post(); ?>
 
                             <?php

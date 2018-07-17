@@ -25,6 +25,17 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121920192-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-121920192-1');
+</script>
+
 <nav id="site-navigation" class="main-navigation">
 
     <button class="menu-toggle-container">
@@ -91,13 +102,13 @@
                 <ul class="meta-menu menu">
                     <li class="menu-item menu-social"><a href="<?php if (!empty($fb_link)) {
                             echo $fb_link;
-                        } ?>"><i class="fa fa-2x fa-facebook"></i></a></li>
+                        } ?>" target="_blank"><i class="fa fa-2x fa-facebook"></i></a></li>
                     <li class="menu-item menu-social"><a href="<?php if (!empty($insta_link)) {
                             echo $insta_link;
-                        } ?>"><i class="fa fa-2x fa-instagram"></i></a></li>
+                        } ?>" target="_blank"><i class="fa fa-2x fa-instagram"></i></a></li>
                     <li class="menu-item menu-social"><a href="<?php if (!empty($twitter_link)) {
                             echo $twitter_link;
-                        } ?>"><i class="fa fa-2x fa-twitter"></i></a></li>
+                        } ?>" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>
                     <li class='menu-item menu-count'>
                         <span id="countdown"></span><span class="to-go"> rallini</span>
                     </li>
@@ -112,15 +123,15 @@
                         <select class='menu-lang-select'>
                             <option value='est' selected>eesti</option>
                             <option value='eng'>english</option>
-                            <option value='rus'>русский</option>
+<!--                            <option value='rus'>русский</option>-->
                         </select>
                     </li>
-                    <li class='menu-item cart'>
-                        <a class='cart-label' href='index.php/cart/'>
-                            <i class='fa fa-shopping-cart'></i>
-                            <span class='cart-count'><?php $ajax ?></span>
-                        </a>
-                    </li>
+<!--                    <li class='menu-item cart'>-->
+<!--                        <a class='cart-label' href='index.php/cart/'>-->
+<!--                            <i class='fa fa-shopping-cart'></i>-->
+<!--                            <span class='cart-count'>--><?php //$ajax ?><!--</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
                 </ul>
             </div>
             <!--        main-->

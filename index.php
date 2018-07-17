@@ -20,7 +20,7 @@ get_header(); ?>
         <?php if ($backgroundImg) : ?>
             <div class="header-bg-container">
                 <div class="header-bg-overlay"></div>
-                <div class="header-bg" style="background-image: url('<?php echo $backgroundImg[0]; ?>')"></div>
+                <div class="header-bg" style="background-image: url('<?php echo random_img(); ?>')"></div>
             </div>
         <?php else : ?>
             <div class="header-bg-container">

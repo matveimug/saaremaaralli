@@ -100,7 +100,7 @@ while ($query->have_posts()) : $query->the_post(); ?>
                             <div class="featured-item">
                                 <div class="featured-text">
                                     <div class="featured-title"><h1><?php the_title(); ?></h1></div>
-                                    <?php if ($content) : ?>
+                                    <?php if ($content && false) : ?>
                                         <div class="featured-subtitle multi-ellipsis"><?php echo $content; ?></div>
                                     <?php endif; ?>
                                 </div>

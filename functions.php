@@ -127,14 +127,14 @@ function wpdocs_custom_excerpt_length( $length ) {
     return 30;
 }
 
-class Child_Wrap extends Walker_Nav_Menu
+/*class Child_Wrap extends Walker_Nav_Menu
 {
     function end_el(&$output, $item, $depth)
     {
         $indent = str_repeat("\t", $depth);
         $output .= "$indent</div></li>\n";
     }
-}
+}*/
 
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 /**

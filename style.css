@@ -1408,7 +1408,7 @@ html, body {
 
 @media screen and (min-width: 601px) {
   .header-title {
-    max-width: 70%; } }
+    max-width: 80%; } }
 
 .header-title h1 {
   border-bottom: solid 14px #6bff95;
@@ -1448,7 +1448,7 @@ html, body {
   margin-top: 2em; }
   @media screen and (min-width: 601px) {
     .header-excerpt {
-      max-width: 70%; } }
+      max-width: 80%; } }
 
 .footer {
   flex-wrap: wrap;
