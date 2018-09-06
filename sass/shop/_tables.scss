@@ -78,3 +78,34 @@ table.shop_table_responsive {
 		}
 	}
 }
+
+.dataTables_filter {
+  margin-bottom: 10px;
+}
+
+
+.site-content {
+  table.dataTable {
+    width: 100% !important;
+    border-bottom: transparent;
+    font-size: 13px;
+    thead th {
+      border-bottom: 3px solid #e3e3e3;
+      text-align: left;
+      padding: 6px 3px
+    }
+    tr.even {
+      td {
+        background-color: #fafafa;
+      }
+    }
+    tr:hover {
+      td {
+        background-color: #efefef;
+      }
+    }
+    td {
+      padding: 3px
+    }
+  }
+}

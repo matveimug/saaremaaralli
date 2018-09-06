@@ -27,6 +27,12 @@ $arrow: $pads/2*3;
   ul {
     margin: 0;
     padding: 0;
+    @media #{$md-min} {
+      li.media + li.nomedia {
+        padding-top: 200px;
+        padding-bottom: 200px;
+      }
+    }
     li {
       list-style-type: none;
       position: relative;
@@ -127,7 +133,8 @@ $arrow: $pads/2*3;
         }
       }
       &:last-child {
-        padding-bottom: $pads;
+        padding-bottom: $pads !important;
+        padding-top: $pads !important;
       }
       @media #{$md-min} {
         &:not(:first-child) {

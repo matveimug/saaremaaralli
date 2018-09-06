@@ -120,11 +120,7 @@
                         </form>
                     </li>
                     <li class='menu-item menu-lang'>
-                        <select class='menu-lang-select'>
-                            <option value='est' selected>eesti</option>
-                            <option value='eng'>english</option>
-<!--                            <option value='rus'>русский</option>-->
-                        </select>
+                        <?php echo do_shortcode('[wpml_language_selector_widget]'); ?>
                     </li>
 <!--                    <li class='menu-item cart'>-->
 <!--                        <a class='cart-label' href='index.php/cart/'>-->

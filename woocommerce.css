@@ -128,19 +128,12 @@ WooCommerce styles override
       margin-top: 0;
       position: absolute; }
       .header-text > a {
-        max-width: 68em;
-        padding-top: 4em; }
+        max-width: 68em; }
         .header-text > a:hover h1 {
           border-bottom-width: 25px; } }
   .header-text .breadcrumbs {
     color: #fff;
     font-size: 14px; }
-    @media screen and (min-width: 601px) {
-      .header-text .breadcrumbs {
-        position: absolute;
-        bottom: 1em;
-        left: auto;
-        right: auto; } }
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
       .header-text .breadcrumbs {
         width: 350px;
@@ -292,6 +285,24 @@ table.shop_table_responsive tr td {
     display: table-cell; }
     table.shop_table_responsive tr td:before {
       display: none; } }
+
+.dataTables_filter {
+  margin-bottom: 10px; }
+
+.site-content table.dataTable {
+  width: 100% !important;
+  border-bottom: transparent;
+  font-size: 13px; }
+  .site-content table.dataTable thead th {
+    border-bottom: 3px solid #e3e3e3;
+    text-align: left;
+    padding: 6px 3px; }
+  .site-content table.dataTable tr.even td {
+    background-color: #fafafa; }
+  .site-content table.dataTable tr:hover td {
+    background-color: #efefef; }
+  .site-content table.dataTable td {
+    padding: 3px; }
 
 /**
  * Products

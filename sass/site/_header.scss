@@ -90,15 +90,16 @@
           }
         }
         max-width: 68em;
-        padding-top: 4em;
+        //padding-top: 4em;
+
       }
     }
     .breadcrumbs {
       @media #{$sm-min} {
-        position: absolute;
-        bottom: 1em;
-        left: auto;
-        right: auto;
+        //position: absolute;
+        //bottom: 1em;
+        //left: auto;
+        //right: auto;
       }
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         width: 350px;

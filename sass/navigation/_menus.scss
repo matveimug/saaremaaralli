@@ -188,7 +188,7 @@ nav.main-navigation {
     }
     &.scrolled {
       @include fast(all);
-      top: -36px;
+      top: -37px;
       .main-menu ul.menu li.menu-item > a {
         padding: 9px 5px;
       }

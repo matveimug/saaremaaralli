@@ -28,14 +28,11 @@
         scrollPos(50, '.main-navigation');
 
         $("#countdown")
-            .countdown("2018/10/13", function (event) {
+            .countdown("2018/10/12", function (event) {
                 $(this).text(
                     event.strftime('%Dp %H:%M:%S')
                 );
             });
-        if (window.matchMedia("(max-width: 768px)").matches) {
-            $('.accordion__item input[type=checkbox]').prop('checked', true);
-        }
         getUrlAndSHow();
 
         $(".owl-carousel").owlCarousel({

@@ -2,12 +2,13 @@ $meta-height: 50px;
 
 .meta {
   &-container {
-    margin-top: $nav-height;
+    //margin-top: $nav-height;
   }
   &-menu {
-    position: absolute;
-    top: 100vh;
-    margin-top: -$meta-height !important;
+    //position: absolute;
+    //top: 100vh;
+    //margin-top: -$meta-height !important;
+
     height: $meta-height;
     left: 0;
     right: 0;
@@ -15,7 +16,7 @@ $meta-height: 50px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: lighten($color__menu-bg, 15%);
+    //background-color: lighten($color__menu-bg, 15%);
     li.menu-item {
       > a:hover {
         color: $color__acc;
@@ -51,6 +52,12 @@ $meta-height: 50px;
     }
     .menu-search {
       display: none;
+      input[type="search"] {
+        &:focus {
+          outline: none;
+          color: $color__menu;
+        }
+      }
     }
     .menu-lang {
       &-select {

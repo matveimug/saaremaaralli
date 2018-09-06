@@ -1,6 +1,18 @@
-.site-content {
+.content-area {
+  z-index: 2;
+  position: relative;
+}
+.site-content.page, .site-content.single {
   padding: 0 .5em;
   @media #{$sm-min} {
-    padding: 0 1em;
+    max-width: 70em;
+    background-color: #fff;
+    margin-top: -11em !important;
+    margin-bottom: 7em !important;
+    padding: 3em;
+    box-shadow: 0 6px 50px 5px rgba(0, 0, 0, 0.08);
   }
+}
+.site-content.single {
+  margin-top: -8em !important;
 }
