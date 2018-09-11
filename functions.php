@@ -243,6 +243,8 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 
 include 'results.php';
 include 'logos.php';
+include 'sponsors_partners.php';
+include 'sponsors_sponsors.php';
 
 //call widget with shortcode
 function widget($atts) {

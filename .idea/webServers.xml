@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="c7b15371-3593-4823-bafb-accd4fbcd7b8" name="saaremaarally" url="http://saaremaarally.eu">
-        <fileTransfer host="saaremaarally.eu" port="21" rootFolder="/htdocs/wp-content/themes/saaremaaralli">
+        <fileTransfer host="saaremaarally.eu" port="21" rootFolder="/htdocs/dev/wp-content/themes/saaremaaralli">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

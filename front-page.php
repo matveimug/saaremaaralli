@@ -160,11 +160,11 @@ while ($query->have_posts()) : $query->the_post(); ?>
                     <?php $count_news++;
                 } ?>
             <?php endwhile; ?>
-            <div class="news-linkto grid-6">
-                <a class="" href="/index.php/uudised/">
-                    <h4>kõik uudiseid </h4>
-                </a>
-            </div>
+<!--            <div class="news-linkto grid-6">-->
+<!--                <a class="" href="/index.php/uudised/">-->
+<!--                    <h4>kõik uudiseid </h4>-->
+<!--                </a>-->
+<!--            </div>-->
         </div>
 
         <?php //featured wide:
