@@ -21,7 +21,7 @@ $brand-width-lg: 280px;
   &-container {
     position: absolute;
     left: 50%;
-    height: $nav-height;
+    height: 100%;
   }
   //desktop
   @media #{$md-min} {
@@ -36,7 +36,7 @@ $brand-width-lg: 280px;
       left: 0;
       top: 0;
       width: $brand-width;
-      display: table-cell;
+      display: block;
       @include fast(all);
     }
     &-svg {
@@ -85,6 +85,7 @@ $brand-width-lg: 280px;
       left: 7px;
       &-container {
         width: 230px;
+        overflow: hidden;
       }
       &-svg {
         &-text {

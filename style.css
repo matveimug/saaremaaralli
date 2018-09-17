@@ -629,7 +629,7 @@ section.no-results.not-found {
   .site-branding-container {
     position: absolute;
     left: 50%;
-    height: 60px; }
+    height: 100%; }
   @media screen and (min-width: 769px) {
     .site-branding {
       transition: all 0.3s ease;
@@ -643,7 +643,7 @@ section.no-results.not-found {
         left: 0;
         top: 0;
         width: 190px;
-        display: table-cell;
+        display: block;
         transition: all 0.3s ease; }
       .site-branding-svg-text {
         transition: all 0.3s ease;
@@ -676,7 +676,8 @@ section.no-results.not-found {
       margin-top: -5px;
       left: 7px; }
       .scrolled .site-branding-container {
-        width: 230px; }
+        width: 230px;
+        overflow: hidden; }
       .scrolled .site-branding-svg-text {
         fill: #fff; }
       .scrolled .site-branding-svg-island {
